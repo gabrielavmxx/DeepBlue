@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+body
+{
+    background-color: #FFF0D9;
+    padding: 0px 40px;
+}
+
+p
+{
+    font-family: "Inter", sans-serif;
+}
+
+.navbar
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid rgb(0, 0, 0, 0.1);
+    padding: 10px 0px;
+}
+
+.nav-items
+{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.logo
+{
+    width: 10px;
+    height: 10px;
+    background-color: red;
+}
+
+.btn-entrar
+{
+    border-color: #89CFF0;
+    background-color: #FFF0D9;
+    padding: 6px 15px;
+    border-radius: 5px;
+    border-style: solid;
+}
+
+.btn-cadastro
+{
+    background-color: #89CFF0;
+    border-color: #89CFF0;
+    padding: 6px 15px;
+    border-radius: 5px;
+    border-style: solid;
+}
+
+.btn
+{
+    font-family: "Inter", sans-serif;
+}
+
+.img-principal
+{
+    width: 200px;
+    height: 200px;
+    background-color: red;
+}
+
+.principal
+{
+    display: flex;
+    padding-top: 60px;
+    justify-content: space-between;
+}
+
+.titulo-principal
+{
+    font-size: 50px;
+    width: 250px;
+}
+
+.titulo
+{
+    font-family: "Baloo 2", sans-serif;
+    font-weight: 500;
+    letter-spacing: 0px;
+    margin: 0;
+    color: #FF6B6B;
+}
+
+.paragrafo-principal
+{
+    width: 290px;
+}
+
+.btn-conhecer
+{
+    border-style: none;
+    background-color: #FF6B6B;
+    color: aliceblue;
+    padding: 15px 25px;
+    border-radius: 5px;
+}
