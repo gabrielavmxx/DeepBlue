@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/6921956092.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Cadastro</title>
+</head>
+<body class="cadastro-body">
+    <!-- <div class="navbar">
+        <div class="nav-items">
+            <div class="logo"></div>
+            <p class="titulo-nav"><a href="index.html">Deep<span>Blue</span></a></p>
+        </div>
+        <div class="nav-items">
+            <p>Cultura</p>
+            <p>Estatisticas</p>
+            <p>Quiz</p>
+            <button class="btn btn-entrar">Entrar</button>
+            <button class="btn btn-cadastro">Cadastro</button>
+        </div>
+    </div> -->
+
+    <div class="cadastro">
+        <div class="sessao-cadastro">
+            <p class="p-entrar titulo">Criar conta</p>
+            <div class="cad-input">
+                <p class="paragrafo-cad">Nome</p>
+                <input type="text" class="ipt-cadastro" placeholder="Insira seu nome">
+            </div>
+            <div class="cad-input">
+                <p class="paragrafo-cad">Email</p>
+                <input type="text" class="ipt-cadastro" placeholder="nome@dominio.com">
+            </div>
+            <div class="cad-input">
+                <p class="paragrafo-cad">Senha</p>
+                <div class="input-container">
+                <input type="password" class="ipt-cadastro" placeholder="Crie uma senha">
+                <i class="fa-solid fa-eye-slash toggle-password"></i>
+                </div>
+            </div>
+            
+            <div class="cad-input">
+                <p class="paragrafo-cad">Confirme a senha</p>
+                <div class="input-container">
+                    <input type="password" class="ipt-cadastro" placeholder="Confirme a senha">
+                    <i class="fa-solid fa-eye-slash toggle-password"></i>
+                </div>
+            </div>
+            <button class="btn btn-cadastrar">Cadastrar</button>
+        </div>
+        <div class="sessao-login">
+            <p class="titulo titulo-login-cad">Bem vindo(a) de volta!</p>
+            <p class="p-login-cad">Caso você já tenha efutado o cadastro pode entrar com sua conta apertando o botão abaixo</p>
+            <a href="login.html" class="btn-a"><button class="btn btn-login">Log in</button></a>
+        </div>
+    </div>
+
+    <div class="rodape">
+        <div class="sessao-rodape">
+            <div class="titulo-nome">
+                <p class="titulo-rodape">DeepBlue</p>
+                <p class="paragrafo-rodape">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est laboriosam earum, cumque odit, nesciunt modi accusamus omnis voluptas minima incidunt ab tenetur rerum. Sunt iusto inventore voluptatibus, accusamus perferendis debitis?</p>
+            </div>
+            <div>
+                <p class="titulo-rodape">Links</p>
+                <p class="paragrafo-rodape">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam, nostrum quas fugiat praesentium ratione ipsum. Nulla, iste praesentium accusamus voluptates velit sunt explicabo repellendus dolores expedita maiores ex eius. Deserunt.</p>
+            </div>
+
+            <div>
+                <p class="titulo-rodape">Contato</p>
+                <p class="paragrafo-rodape">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error odit tenetur delectus quos iste voluptate ut ipsum recusandae asperiores debitis quia incidunt architecto quod praesentium, tempore dolor commodi et doloribus?</p>
+            </div>
+        </div>
+        <div class="rodape-links">
+            <p class="paragrafo-rod">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+            <div class="icons">
+                <p class="icon"><i class="fa-brands fa-instagram icon fa-xl"></i></p>
+                <p class="icon"><i class="fa-brands fa-linkedin icon fa-xl"></i></p>
+                <p class="icon"><i class="fa-brands fa-github icon fa-xl"></i></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const toggleIcons = document.querySelectorAll('.toggle-password');
+      toggleIcons.forEach(icon => {
+        icon.addEventListener('click', () => {
+          const input = icon.previousElementSibling;
+          const type = input.getAttribute('type') === 'password' ? 'text' : 'password'; //<- pegando todos os types = password
+          input.setAttribute('type', type);
+          icon.classList.toggle('fa-eye');
+          icon.classList.toggle('fa-eye-slash');
+        });
+      });
+    });
+  </script>
+  

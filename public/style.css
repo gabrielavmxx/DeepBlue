@@ -11,6 +11,14 @@ p
     font-family: "Inter", sans-serif;
 }
 
+a
+{
+    margin: 0;
+    padding: 0;
+   text-decoration: none;
+   color: black; 
+}
+
 .navbar
 {
     display: flex;
@@ -52,10 +60,30 @@ p
     border-style: solid;
 }
 
+.btn-cadastro:hover
+{
+    transition: all 0.2s ease-out;
+    background-color: #89CFF0;
+    transform: scale(1.2);
+    box-shadow: 0 0 15px 5px rgba(0, 142, 236, 0.2);
+}
+
+.btn-entrar:hover
+{
+    /* -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out; */
+    transition: all 0.2s ease-out;
+    background-color: #89CFF0;
+    transform: scale(1.2);
+    box-shadow: 0 0 15px 5px rgba(0, 142, 236, 0.2);
+}
+
 .btn
 {
     font-family: "Inter", sans-serif;
 }
+
+/*Página inicial*/
 
 .principal
 {
@@ -207,6 +235,8 @@ p
     padding: 0px 60px;
 }
 
+/*Rodapé*/
+
 .sessao-rodape
 {
     display: flex;
@@ -226,7 +256,8 @@ p
 
 .titulo-rodape
 {
-    font-size: x-large;
+    font-size: larger;
+    font-weight: 450;
 }
 
 .paragrafo-rodape
@@ -249,10 +280,179 @@ p
 .icons
 {
     display: flex;
+    gap: 10px;
 }
 
 .rodape-links
 {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+}
+
+/*Página de cadastro*/
+
+.cadastro
+{
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+    width: 60%;
+    height: 750px;
+    border-radius: 20px;
+    border-bottom: 6px solid rgb(0,0,0,0.1);
+    margin: 3.4%;
+}
+
+.sessao-cadastro
+{
+    background-color: #FFF0D9;
+    padding: 50px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    width: 100%;
+}
+
+.sessao-login
+{
+    background-color: #FF6B6B;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 50px;
+    color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulo-login-cad
+{
+    font-size: 36px;
+    color: aliceblue;
+}
+
+.p-login-cad
+{
+    width: 350px;
+    display: flex;
+}
+
+.btn-login
+{
+    padding: 15px;
+    border: 2px solid aliceblue;
+    background-color: #FF6B6B;
+    color: aliceblue;
+    border-radius: 5px;
+    font-size: large;
+    margin-top: 30px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.btn-login:hover
+{
+    transition: all 0.2s ease-out;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px 5px rgba(138, 8, 43, 0.3);
+}
+
+.ipt-cadastro {
+    padding: 15px 15px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    height: 50px;
+  }
+
+.paragrafo-cad
+{
+    font-size: large;
+    margin: 0;
+}
+
+.btn-cadastrar 
+{
+    padding: 15px;
+    border-style: none;
+    background-color: #FF6B6B;
+    color: aliceblue;
+    border-radius: 5px;
+    font-size: large;
+    margin-top: 30px;
+    width: 100%;
+    box-sizing: border-box;
+}
+  
+.btn-cadastrar:hover
+{
+    transition: all 0.2s ease-out;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px 5px rgba(138, 8, 43, 0.2);
+}
+
+.cad-input
+{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 15px 0px;
+    gap: 10px;
+}
+
+.input-container 
+{
+    position: relative;
+    width: 100%;
+}
+  
+.input-container .ipt-cadastro 
+{
+    padding-right: 40px;
+    box-sizing: border-box;
+}
+  
+.input-container i 
+{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    cursor: pointer;
+}
+  
+.cadastro-body
+{
+    background-color: rgb(255, 240, 217, 0.4);
+}
+
+.btn-a
+{
+    width: 100%;
+}
+
+/*Página de login*/
+
+.sessao-log
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #FFF0D9;
+    padding: 50px;
+    width: 100%;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+.p-entrar
+{
+    font-size: 40px;
+    display: flex;
+    align-self: center;
+    font-weight: 600;
+    margin-bottom: 30px;
+    justify-self: center;
 }
