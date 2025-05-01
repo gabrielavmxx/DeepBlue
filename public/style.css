@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+body
+{
+    background-color: #FFF0D9;
+    margin: 0;
+}
+
+p
+{
+    font-family: "Inter", sans-serif;
+}
+
+.navbar
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid rgb(0, 0, 0, 0.1);
+    padding: 10px 60px;
+}
+
+.nav-items
+{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.logo
+{
+    width: 10px;
+    height: 10px;
+    background-color: red;
+}
+
+.btn-entrar
+{
+    border-color: #89CFF0;
+    background-color: #FFF0D9;
+    padding: 6px 15px;
+    border-radius: 5px;
+    border-style: solid;
+} 
+
+.btn-cadastro
+{
+    background-color: #89CFF0;
+    border-color: #89CFF0;
+    padding: 6px 15px;
+    border-radius: 5px;
+    border-style: solid;
+}
+
+.btn
+{
+    font-family: "Inter", sans-serif;
+}
+
+.principal
+{
+    display: flex;
+    justify-content: space-between;
+    padding: 60px 60px;
+    border-bottom: solid 2px rgb(0,0,0,0.1);
+}
+
+.titulo-principal
+{
+    width: 500px;
+}
+
+.titulo
+{
+    font-family: "Baloo 2", sans-serif;
+    font-weight: 500;
+    letter-spacing: 0px;
+    margin: 0;
+    color: #FF6B6B;
+    font-size: 90px;
+}
+
+.paragrafo-principal
+{
+    width: 400px;
+    font-size: large;
+}
+
+.btn-conhecer
+{
+    border-style: none;
+    background-color: #FF6B6B;
+    color: aliceblue;
+    padding: 15px 25px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: large;
+    margin-top: 50px;
+}
+
+.img-principal
+{
+    background-image: url(img/surf_illustration.png);
+    width: 700px;
+    height: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bloco
+{
+    width: 650px;
+    height: 400px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.paragrafo-imagem
+{
+    display: flex;
+    flex-direction: column;
+    background-color: #89CFF0;
+    padding: 0px 60px;
+    margin-top: 0;
+}
+
+.sessao-historia
+{
+    padding: 0px 60px;
+    margin-bottom: 0;
+}
+
+
+.bloco1, .bloco3
+{
+    display: flex;
+    align-self: flex-end;
+}
+
+.bloco1
+{
+    background-image: url(img/surf1.jpg);
+}
+
+.bloco2
+{
+    background-image: url(img/surf2.jpg);
+}
+
+.bloco3
+{
+    background-image: url(img/surf3.jpg);
+}
+
+.paragrafo-historia
+{
+    font-size: large;
+    margin-bottom: 0;
+}
+
+.img-e-paragrafo
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.paragrafo-hist2
+{
+    width: 750px;
+    font-size: large;
+    margin-top: 0;
+}
+
+.botao-quiz
+{
+    border-style: none;
+    background-color: #FF6B6B;
+    color: aliceblue;
+    padding: 15px 25px;
+    border-radius: 5px;
+    align-items: center;
+    font-size: large;
+    margin-top: 20px;
+    width: 400px;
+}
+
+.bquiz
+{
+    width: 400px;
+    height: 250px;
+    background-color: red;
+}
+
+.quizes
+{
+    display: flex;
+    gap: 5%;
+    justify-content: space-between;
+}
+
+.sessao-quiz
+{
+    display: flex;
+    flex-direction: column;
+    padding: 0px 60px;
+}
+
+.sessao-rodape
+{
+    display: flex;
+    justify-content: flex-start;
+    gap: 5%;
+    margin-top: 2%;
+}
+
+.rodape
+{
+    padding: 0px 60px;
+    background-color: #89CFF0;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+}
+
+.titulo-rodape
+{
+    font-size: x-large;
+}
+
+.paragrafo-rodape
+{
+    width: 300px;
+}
+
+.icon
+{
+    width: 32px;
+    height: 32px;
+}
+
+.paragrafo-rod
+{
+    font-size: medium;
+    color: rgb(0,0,0,0.6);
+}
+
+.icons
+{
+    display: flex;
+}
+
+.rodape-links
+{
+    display: flex;
+    justify-content: space-around;
+}
