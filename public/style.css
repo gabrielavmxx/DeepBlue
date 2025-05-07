@@ -2,7 +2,7 @@
 
 body
 {
-    background-color: #FFF0D9;
+    background-color: #E5ECF4;
     margin: 0;
 }
 
@@ -44,8 +44,8 @@ a
 
 .btn-entrar
 {
-    border-color: #89CFF0;
-    background-color: #FFF0D9;
+    border-color: #1B4F72;
+    background-color: #E5ECF4;
     padding: 6px 15px;
     border-radius: 5px;
     border-style: solid;
@@ -53,8 +53,8 @@ a
 
 .btn-cadastro
 {
-    background-color: #89CFF0;
-    border-color: #89CFF0;
+    background-color: #1B4F72;
+    border-color: #1B4F72;
     padding: 6px 15px;
     border-radius: 5px;
     border-style: solid;
@@ -63,9 +63,9 @@ a
 .btn-cadastro:hover
 {
     transition: all 0.2s ease-out;
-    background-color: #89CFF0;
+    background-color: #1B4F72;
     transform: scale(1.2);
-    box-shadow: 0 0 15px 5px rgba(0, 142, 236, 0.2);
+    box-shadow: 0 0 15px 5px rgba(10, 83, 132, 0.2);
 }
 
 .btn-entrar:hover
@@ -73,9 +73,9 @@ a
     /* -webkit-transition: all 0.2s ease-out;
     -moz-transition: all 0.2s ease-out; */
     transition: all 0.2s ease-out;
-    background-color: #89CFF0;
+    background-color: #1B4F72;
     transform: scale(1.2);
-    box-shadow: 0 0 15px 5px rgba(0, 142, 236, 0.2);
+    box-shadow: 0 0 15px 5px rgba(10, 83, 132, 0.2);
 }
 
 .btn
@@ -89,7 +89,7 @@ a
 {
     display: flex;
     justify-content: space-between;
-    padding: 60px 60px;
+    padding: 60px 8%;
     border-bottom: solid 2px rgb(0,0,0,0.1);
 }
 
@@ -104,7 +104,7 @@ a
     font-weight: 500;
     letter-spacing: 0px;
     margin: 0;
-    color: #FF6B6B;
+    color: #0A2342;
     font-size: 90px;
 }
 
@@ -117,7 +117,7 @@ a
 .btn-conhecer
 {
     border-style: none;
-    background-color: #FF6B6B;
+    background-color: #0A2342;
     color: aliceblue;
     padding: 15px 25px;
     border-radius: 5px;
@@ -130,11 +130,11 @@ a
 
 .img-principal
 {
-    background-image: url(img/surf_illustration.png);
-    width: 700px;
+    background-image: url(img/surf_illustrationn.png);
+    width: 500px;
     height: 500px;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
 }
 
 .bloco
@@ -149,15 +149,25 @@ a
 {
     display: flex;
     flex-direction: column;
-    background-color: #89CFF0;
-    padding: 0px 60px;
+    background-color: #1B4F72;
+    padding: 2% 8%;
     margin-top: 0;
 }
 
 .sessao-historia
 {
-    padding: 0px 60px;
+    padding: 0px 8%;
     margin-bottom: 0;
+    background-color: #0A2342;
+    margin: 40px 0px;
+    width: 23%;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.titulo-historia
+{
+    color: aliceblue;
 }
 
 
@@ -182,29 +192,32 @@ a
     background-image: url(img/surf3.jpg);
 }
 
-.paragrafo-historia
-{
-    font-size: large;
-    margin-bottom: 0;
-}
-
 .img-e-paragrafo
 {
     display: flex;
     justify-content: space-between;
 }
 
+.cont2
+{
+    flex-direction: row-reverse;
+    margin: 4% 0px;
+    justify-content: space-between;
+    display: flex;
+}
+
 .paragrafo-hist2
 {
-    width: 750px;
+    width: 500px;
     font-size: large;
     margin-top: 0;
+    color: aliceblue;
 }
 
 .botao-quiz
 {
     border-style: none;
-    background-color: #FF6B6B;
+    background-color: #0A2342;
     color: aliceblue;
     padding: 15px 25px;
     border-radius: 5px;
@@ -232,7 +245,7 @@ a
 {
     display: flex;
     flex-direction: column;
-    padding: 0px 60px;
+    padding: 0px 8%;
 }
 
 /*Rodapé*/
@@ -248,10 +261,11 @@ a
 .rodape
 {
     padding: 0px 60px;
-    background-color: #89CFF0;
+    background-color: #1B4F72;
     display: flex;
     flex-direction: column;
     margin-top: 5%;
+    color: aliceblue;
 }
 
 .titulo-rodape
@@ -274,7 +288,7 @@ a
 .paragrafo-rod
 {
     font-size: medium;
-    color: rgb(0,0,0,0.6);
+    color: rgba(208, 208, 208, 0.4);
 }
 
 .icons
@@ -300,12 +314,12 @@ a
     height: 750px;
     border-radius: 20px;
     border-bottom: 6px solid rgb(0,0,0,0.1);
-    margin: 3.4%;
+    margin: 1%;
 }
 
 .sessao-cadastro
 {
-    background-color: #FFF0D9;
+    background-color: #E5ECF4;
     padding: 50px;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
@@ -314,7 +328,7 @@ a
 
 .sessao-login
 {
-    background-color: #FF6B6B;
+    background-color: #0A2342;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     padding: 50px;
@@ -341,7 +355,7 @@ a
 {
     padding: 15px;
     border: 2px solid aliceblue;
-    background-color: #FF6B6B;
+    background-color: #0A2342;
     color: aliceblue;
     border-radius: 5px;
     font-size: large;
@@ -354,7 +368,7 @@ a
 {
     transition: all 0.2s ease-out;
     transform: scale(1.1);
-    box-shadow: 0 0 15px 5px rgba(138, 8, 43, 0.3);
+    box-shadow: 0 0 15px 5px rgb(4, 18, 37);
 }
 
 .ipt-cadastro {
@@ -376,7 +390,7 @@ a
 {
     padding: 15px;
     border-style: none;
-    background-color: #FF6B6B;
+    background-color: #0A2342;
     color: aliceblue;
     border-radius: 5px;
     font-size: large;
@@ -389,7 +403,7 @@ a
 {
     transition: all 0.2s ease-out;
     transform: scale(1.1);
-    box-shadow: 0 0 15px 5px rgba(138, 8, 43, 0.2);
+    box-shadow: 0 0 10px 5px rgb(11, 42, 83);
 }
 
 .cad-input
@@ -425,7 +439,7 @@ a
   
 .cadastro-body
 {
-    background-color: rgb(255, 240, 217, 0.4);
+    background-color: rgb(244, 248, 252);
 }
 
 .btn-a
@@ -435,12 +449,24 @@ a
 
 /*Página de login*/
 
+.login
+{
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+    width: 60%;
+    height: 600px;
+    border-radius: 20px;
+    border-bottom: 6px solid rgb(0,0,0,0.1);
+    margin: 3.4%;
+}
+
 .sessao-log
 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: #FFF0D9;
+    background-color: #E5ECF4;
     padding: 50px;
     width: 100%;
     border-bottom-left-radius: 20px;
@@ -455,4 +481,9 @@ a
     font-weight: 600;
     margin-bottom: 30px;
     justify-self: center;
+}
+
+.icon
+{
+    color: aliceblue;
 }
