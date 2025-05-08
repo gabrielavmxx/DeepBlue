@@ -58,11 +58,12 @@ a
     padding: 6px 15px;
     border-radius: 5px;
     border-style: solid;
+    color: aliceblue;
 }
 
 .btn-cadastro:hover
 {
-    transition: all 0.2s ease-out;
+    transition: all 0.2s ease-in-out;
     background-color: #1B4F72;
     transform: scale(1.2);
     box-shadow: 0 0 15px 5px rgba(10, 83, 132, 0.2);
@@ -72,8 +73,9 @@ a
 {
     /* -webkit-transition: all 0.2s ease-out;
     -moz-transition: all 0.2s ease-out; */
-    transition: all 0.2s ease-out;
+    transition: all 0.2s ease-in-out;
     background-color: #1B4F72;
+    color: aliceblue;
     transform: scale(1.2);
     box-shadow: 0 0 15px 5px rgba(10, 83, 132, 0.2);
 }
@@ -225,6 +227,14 @@ a
     font-size: large;
     margin-top: 20px;
     width: 400px;
+}
+
+.botao-quiz:hover
+{
+    transition: all 0.2s ease-in-out;
+    background-color: #05162b;
+    transform: scale(1.2);
+    box-shadow: 0 0 15px 5px rgba(10, 83, 132, 0.2);
 }
 
 .bquiz

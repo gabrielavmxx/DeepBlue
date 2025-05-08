@@ -27,16 +27,16 @@
             <p class="p-entrar titulo">Login em DeepBlue</p>
             <div class="cad-input">
                 <p class="paragrafo-cad">Email</p>
-                <input type="text" class="ipt-cadastro" placeholder="nome@dominio.com">
+                <input type="text" class="ipt-cadastro" id="email_input" placeholder="nome@dominio.com">
             </div>
             <div class="cad-input">
                 <p class="paragrafo-cad">Senha</p>
                 <div class="input-container">
-                <input type="password" class="ipt-cadastro" placeholder="Crie uma senha">
+                <input type="password" class="ipt-cadastro" id="senha_input" placeholder="Crie uma senha">
                 <i class="fa-solid fa-eye-slash toggle-password"></i>
                 </div>
             </div>
-            <a href="dashboard.html"><button class="btn btn-cadastrar">Entrar</button></a>
+            <button class="btn btn-cadastrar" onclick="entrar()">Entrar</button>
         </div>
         <div class="sessao-login">
             <p class="titulo titulo-login-cad">Olá, é novo aqui?</p>
@@ -86,5 +86,65 @@
         });
       });
     });
-  </script>
+
+function entrar() {
+
+    var emailVar = email_input.value;
+    var senhaVar = senha_input.value;
+
+    if (emailVar == "" || senhaVar == "") {
+        alert ('Mensagem de erro para todos os campos em branco')
+
+        finalizarAguardar();
+        return false;
+    }
+
+    console.log("FORM LOGIN: ", emailVar);
+    console.log("FORM SENHA: ", senhaVar);
+
+    fetch("/usuarios/autenticar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            emailServer: emailVar,
+            senhaServer: senhaVar
+        }),
+    })
+    .then(function (resposta) {
+        console.log("ESTOU NO THEN DO entrar()!")
+
+        if (resposta.ok) {
+            console.log(resposta);
+
+            resposta.json().then(json => {
+                console.log(json);
+                console.log(JSON.stringify(json));
+                sessionStorage.EMAIL_USUARIO = json.email;
+                sessionStorage.NOME_USUARIO = json.nome;
+                sessionStorage.ID_USUARIO = json.idUsuario;
+
+                  setTimeout(function () {
+                    window.location.href = "dashboard.html";
+                    });
+            });
+
+        } else {
+
+            console.log("Houve um erro ao tentar realizar o login!");
+
+            resposta.text().then(texto => {
+                console.error(texto);
+                finalizarAguardar(texto);
+            });
+        }
+
+    }).catch(function (erro) {
+        console.log(erro);
+    })
+
+    return false;
+}
+</script>
   

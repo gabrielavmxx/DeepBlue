@@ -6,7 +6,7 @@ create table usuario
     idUsuario int primary key auto_increment,
     nome varchar(50),
     email varchar(60),
-    senha varchar(20),
+    senha varchar(20)
 );
 
 create table quiz

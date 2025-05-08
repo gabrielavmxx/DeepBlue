@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/6921956092.js" crossorigin="anonymous"></script>
+    <script src="./js/sessao.js"></script>
     <link rel="stylesheet" href="style.css">
     <title>Cadastro</title>
 </head>
@@ -27,16 +28,16 @@
             <p class="p-entrar titulo">Criar conta</p>
             <div class="cad-input">
                 <p class="paragrafo-cad">Nome</p>
-                <input type="text" class="ipt-cadastro" placeholder="Insira seu nome">
+                <input type="text" class="ipt-cadastro" id="nome_input" placeholder="Insira seu nome">
             </div>
             <div class="cad-input">
                 <p class="paragrafo-cad">Email</p>
-                <input type="text" class="ipt-cadastro" placeholder="nome@dominio.com">
+                <input type="text" class="ipt-cadastro" id="email_input" placeholder="nome@dominio.com">
             </div>
             <div class="cad-input">
                 <p class="paragrafo-cad">Senha</p>
                 <div class="input-container">
-                <input type="password" class="ipt-cadastro" placeholder="Crie uma senha">
+                <input type="password" class="ipt-cadastro" id="senha_input" placeholder="Crie uma senha">
                 <i class="fa-solid fa-eye-slash toggle-password"></i>
                 </div>
             </div>
@@ -44,11 +45,11 @@
             <div class="cad-input">
                 <p class="paragrafo-cad">Confirme a senha</p>
                 <div class="input-container">
-                    <input type="password" class="ipt-cadastro" placeholder="Confirme a senha">
+                    <input type="password" class="ipt-cadastro" id="confirmacao_senha_input" placeholder="Confirme a senha">
                     <i class="fa-solid fa-eye-slash toggle-password"></i>
                 </div>
             </div>
-            <a href="dashboard.html"><button class="btn btn-cadastrar">Cadastrar</button></a>
+            <button class="btn btn-cadastrar" onclick="cadastrar()">Cadastrar</button>
         </div>
         <div class="sessao-login">
             <p class="titulo titulo-login-cad">Bem vindo(a) de volta!</p>
@@ -98,5 +99,68 @@
         });
       });
     });
-  </script>
+
+function cadastrar() {
+  // aguardar();
+
+  //Recupere o valor da nova input pelo nome do id
+  // Agora vá para o método fetch logo abaixo
+  var nomeVar = nome_input.value;
+  var emailVar = email_input.value;
+  var senhaVar = senha_input.value;
+  var confirmacaoSenhaVar = confirmacao_senha_input.value;
+
+  // Verificando se há algum campo em branco
+  if (
+    nomeVar == "" ||
+    emailVar == "" ||
+    senhaVar == "" ||
+    confirmacaoSenhaVar == ""
+  ) {
+
+    alert('Existem campos em branco')
+
+    finalizarAguardar();
+    return false;
+  }
+
+  // Enviando o valor da nova input
+  fetch("/usuarios/cadastrar", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      // crie um atributo que recebe o valor recuperado aqui
+      // Agora vá para o arquivo routes/usuario.js
+      nomeServer: nomeVar,
+      emailServer: emailVar,
+      senhaServer: senhaVar
+    }),
+  })
+    .then(function (resposta) {
+      console.log("resposta: ", resposta);
+
+      if (resposta.ok) {
+
+        alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...")  
+
+        setTimeout(() => {
+          window.location = "login.html";
+        })
+
+        limparFormulario();
+        finalizarAguardar();
+      } else {
+        alert("Houve um erro ao tentar realizar o cadastro!")
+      }
+    })
+    .catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+      finalizarAguardar();
+    });
+
+  return false;
+}
+</script>
   
