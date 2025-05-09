@@ -102,7 +102,7 @@ function entrar() {
     console.log("FORM LOGIN: ", emailVar);
     console.log("FORM SENHA: ", senhaVar);
 
-    fetch("/usuarios/autenticar", {
+    fetch("http://localhost:3333/usuarios/autenticar", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -134,10 +134,10 @@ function entrar() {
 
             console.log("Houve um erro ao tentar realizar o login!");
 
-            resposta.text().then(texto => {
-                console.error(texto);
-                finalizarAguardar(texto);
-            });
+            // resposta.text().then(texto => {
+            //     console.error(texto);
+            //     finalizarAguardar(texto);
+            // });
         }
 
     }).catch(function (erro) {

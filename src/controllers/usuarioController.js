@@ -11,13 +11,13 @@ function autenticar(req, res) {
     } else {
 
         usuarioModel.autenticar(email, senha)
-            .then(
+            .then( //espera executar o resto da funcao para executar essa parte
                 function (resultadoAutenticar) {
                     console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
                     console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); // transforma JSON em String
 
                     if (resultadoAutenticar.length == 1) {
-                        console.log(resultadoAutenticar);
+                        res.status(200).json(resultadoAutenticar[0])
                     } else if (resultadoAutenticar.length == 0) {
                         res.status(403).send("Email e/ou senha inválido(s)");
                     } else {

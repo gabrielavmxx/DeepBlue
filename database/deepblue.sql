@@ -15,6 +15,13 @@ create table quiz
     descricao varchar(50)
 );
 
+create table quiz_pergunta
+(
+    idPergunta int primary key auto_increment,
+    numeroQuestao int,
+    
+);
+
 create table resultado_quiz
 (
     idResultado int primary key auto_increment,
