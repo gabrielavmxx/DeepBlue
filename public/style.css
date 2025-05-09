@@ -19,6 +19,11 @@ a
    color: black; 
 }
 
+html
+{
+    scroll-behavior: smooth; /*isso aq faz o href que coloquei em alguns botoes funcioem de forma suave*/
+}
+
 .navbar
 {
     display: flex;
@@ -32,14 +37,22 @@ a
 {
     display: flex;
     align-items: center;
+    gap: 5px;
+}
+
+.nav-items2
+{
+    display: flex;
+    align-items: center;
     gap: 25px;
 }
 
 .logo
 {
-    width: 10px;
-    height: 10px;
-    background-color: red;
+    width: 50px;
+    height: 50px;
+    background-image: url(img/logo.png);
+    background-size: cover;
 }
 
 .btn-entrar
@@ -130,6 +143,14 @@ a
     margin-top: 50px;
 }
 
+.btn-conhecer:hover
+{
+    transition: all 0.2s ease-in-out;
+    background-color: #05162b;
+    transform: scale(1.2);
+    box-shadow: 0 0 5px 5px rgba(10, 83, 132, 0.2);
+}
+
 .img-principal
 {
     background-image: url(img/surf_illustrationn.png);
@@ -198,6 +219,7 @@ a
 {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .cont2
@@ -246,6 +268,7 @@ a
 
 .quizes
 {
+    margin-top: 4%;
     display: flex;
     gap: 5%;
     justify-content: space-between;
@@ -256,6 +279,25 @@ a
     display: flex;
     flex-direction: column;
     padding: 0px 8%;
+}
+
+.bloco-quiz33
+{
+    background-image: url(img/personalidadequiz.png);
+    background-size: 400px 320px;
+    background-repeat: no-repeat;
+}
+
+.bloco-quiz22
+{
+    background-image: url(img/culturaquiz.jpg);
+    background-size: cover;
+}
+
+.bloco-quiz11
+{
+    background-image: url(img/surfistasquiz.png);
+    background-size: cover;
 }
 
 /*Rodapé*/
@@ -496,4 +538,125 @@ a
 .icon
 {
     color: aliceblue;
+}
+
+/*Página de quiz*/
+
+.blocos-quizes
+{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+.bloco-quiz
+{
+    width: 800px;
+    height: 320px;
+    background-color: red;
+}
+
+.todos-items-quiz
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.botao-quizes
+{
+    border-style: none;
+    background-color: #0A2342;
+    color: aliceblue;
+    padding: 15px 25px;
+    border-radius: 5px;
+    align-items: center;
+    font-size: large;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.paragrafo-quiz
+{
+    margin: 0;
+}
+
+.q2
+{
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.botao-quizes:hover
+{
+    transition: all 0.2s ease-out;
+    transform: scale(1.1);
+    box-shadow: 0 0 5px 5px rgb(4, 18, 37, 0.2);
+}
+
+.outros-quizes
+{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.bloco-quiz1
+{
+    width: 600px;
+    height: 320px;
+    background-color: red;
+}
+
+.bloco-quiz03
+{
+    background-image: url(img/surfistasquiz.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.bloco-quiz01
+{
+    background-image: url(img/personalidadequiz.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.bloco-quiz02
+{
+    background-image: url(img/culturaquiz.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*Página sobre mim*/
+.container-historia
+{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px 60px;
+}
+
+.img-am
+{
+    width: 400px;
+    height: 600px;
+    background-color: red;
+}
+
+.img-aboutme
+{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.historia-texto
+{
+    width: 500px;
+    font-weight: 500;
 }

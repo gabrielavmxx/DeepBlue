@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="dashboard.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <title>Dashboard</title>
+    <title>Sobre mim</title>
 </head>
 <body>
     <div class="navbar">
@@ -23,16 +21,15 @@
         </div>
     </div>
 
-    <div class="conteudo-dashboard">
-        <div class="items-dashboard">
-            <a href=""><p class="paragrafo">Estatisticas</p></a>
-            <a href="quiz.html"><p class="paragrafo">Quiz</p></a>
-            <a href=""><p class="paragrafo">Perfil</p></a>
-            <a href=""><p class="paragrafo">Meus resultados</p></a>
+    <div class="container-historia">
+        <div class="img-aboutme">
+            <div class="img-am am1"></div>
         </div>
-        <div class="graficos-dashboard">
-            <canvas class="grafico g1" id="myChart1"></canvas>
-            <canvas class="grafico g2" id="myChart2"></canvas>
+        <div class="historia-texto">
+            <p>Tudo começou quando eu ainda era um bebê, não sabia de nada, mas estava literalmente todo final de semana no litoral sul de São Paulo. Eu não morei oficialmente lá, mas passava semanas ou até mesmo meses, foi um tempo muito bom, além disso as poucas recordações que tenho de minha infância foram lá, e por esse motivo sempre digo a todo mundo que cresci e morei nesse lugar, o mar sempre foi meu ponto de refúgio, onde me sinto mais tranquila e todos meus problemas desaparecem. A partir daí surgiu meu amor pelo surf, admirava muito, tinha muita vontade de aprender, mas não tinha talento para isso então foi tudo muito difícil, meus pais não gostavam muito da ideia porque achavam perigoso, mesmo assim decidi que queria praticar, e assim cresci tentando aperfeiçoar essa paixão </p>
+        </div>
+        <div class="img-aboutme">
+            <div class="img-am am1"></div>
         </div>
     </div>
 
@@ -63,46 +60,3 @@
     </div>
 </body>
 </html>
-
-<script>
-    const ctx1 = document.getElementById('myChart1');
-    const ctx2 = document.getElementById('myChart2');
-
-    new Chart(ctx1, {
-    type: 'bar',
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
-        borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-        y: {
-            beginAtZero: true
-        }
-        }
-    }
-    });
-
-    new Chart(ctx2, {
-    type: 'polarArea',
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
-        borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-        y: {
-            beginAtZero: true
-        }
-        }
-    }
-    });
-</script>

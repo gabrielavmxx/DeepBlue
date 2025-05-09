@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="dashboard.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <title>Dashboard</title>
+
+    <title>Quiz</title>
 </head>
 <body>
     <div class="navbar">
@@ -23,16 +22,27 @@
         </div>
     </div>
 
-    <div class="conteudo-dashboard">
-        <div class="items-dashboard">
-            <a href=""><p class="paragrafo">Estatisticas</p></a>
-            <a href="quiz.html"><p class="paragrafo">Quiz</p></a>
-            <a href=""><p class="paragrafo">Perfil</p></a>
-            <a href=""><p class="paragrafo">Meus resultados</p></a>
+    <div class="sessao-quiz">
+        <div class="textos-quiz">
+            <p class="titulo titulo-quiz">Quanto você sabe?</p>
+            <p class="paragrafo-quiz">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio placeat ipsam ut ea magni dolores recusandae incidunt inventore assumenda voluptatem numquam architecto optio velit eius unde aliquid quaerat, cum doloremque.</p>
         </div>
-        <div class="graficos-dashboard">
-            <canvas class="grafico g1" id="myChart1"></canvas>
-            <canvas class="grafico g2" id="myChart2"></canvas>
+        <div class="blocos-quizes">
+            <div class="todos-items-quiz q1">
+                <div class="bloco-quiz bloco-quiz03"></div>
+                <button class="btn botao-quizes">Quiz sobre surfistas</button>
+            </div>
+
+            <div class="outros-quizes">
+                <div class="todos-items-quiz q2">
+                    <div class="bloco-quiz1 bloco-quiz02"></div>
+                    <button class="btn botao-quizes">Cultura do surf</button>
+                </div>
+                <div class="todos-items-quiz q3">
+                    <div class="bloco-quiz1 bloco-quiz01"></div>
+                    <button class="btn botao-quizes">Quiz de personalidade</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -63,46 +73,3 @@
     </div>
 </body>
 </html>
-
-<script>
-    const ctx1 = document.getElementById('myChart1');
-    const ctx2 = document.getElementById('myChart2');
-
-    new Chart(ctx1, {
-    type: 'bar',
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
-        borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-        y: {
-            beginAtZero: true
-        }
-        }
-    }
-    });
-
-    new Chart(ctx2, {
-    type: 'polarArea',
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
-        borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-        y: {
-            beginAtZero: true
-        }
-        }
-    }
-    });
-</script>
