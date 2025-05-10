@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <title>Quiz</title>
 </head>
@@ -30,17 +30,17 @@
         <div class="blocos-quizes">
             <div class="todos-items-quiz q1">
                 <div class="bloco-quiz bloco-quiz03"></div>
-                <button class="btn botao-quizes">Quiz sobre surfistas</button>
+                <button class="btn botao-quizes" onclick="verificar('surfistas')">Quiz sobre surfistas</button>
             </div>
 
             <div class="outros-quizes">
                 <div class="todos-items-quiz q2">
                     <div class="bloco-quiz1 bloco-quiz02"></div>
-                    <button class="btn botao-quizes">Cultura do surf</button>
+                    <button class="btn botao-quizes" onclick="verificar('cultura')">Cultura do surf</button>
                 </div>
                 <div class="todos-items-quiz q3">
                     <div class="bloco-quiz1 bloco-quiz01"></div>
-                    <button class="btn botao-quizes">Quiz de personalidade</button>
+                    <button class="btn botao-quizes" onclick="verificar('personalidade')">Quiz de personalidade</button>
                 </div>
             </div>
         </div>
@@ -73,3 +73,13 @@
     </div>
 </body>
 </html>
+
+<script>
+    function verificar(quizzes){
+        if(sessionStorage.NOME_USUARIO == null){
+            window.location.href = "login.html";
+        }else{
+            window.location.href = quizzes+".html";
+        }
+    }
+</script>

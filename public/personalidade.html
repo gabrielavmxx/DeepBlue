@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/quiz.css">
+    <title>Quiz de personalidade</title>
+</head>
+<body>
+    <div class="navbar">
+        <div class="nav-items">
+            <a href="index.html"><div class="logo"></div></a>
+            <p class="titulo-nav"><a href="index.html">Deep<span>Blue</span></a></p>
+        </div>
+        <div class="nav-items2">
+            <a href="index.html#sessao-historia"><p>Cultura</p></a>
+            <a href="sobremim.html"><p>Sobre mim</p></a>
+            <a href="quiz.html"><p>Quiz</p></a>
+            <a href="login.html"><button class="btn btn-entrar">Entrar</button></a>
+            <a href="cadastro.html"><button class="btn btn-cadastro">Cadastro</button></a>
+        </div>
+    </div>
+
+    <div class="conteudo-quiz"
+    id="conteudo_quiz">
+    </div> 
+
+    <div class="rodape">
+        <div class="sessao-rodape">
+            <div class="titulo-nome">
+                <p class="titulo-rodape">DeepBlue</p>
+                <p class="paragrafo-rodape">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est laboriosam earum, cumque odit, nesciunt modi accusamus omnis voluptas minima incidunt ab tenetur rerum. Sunt iusto inventore voluptatibus, accusamus perferendis debitis?</p>
+            </div>
+            <div>
+                <p class="titulo-rodape">Links</p>
+                <p class="paragrafo-rodape">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam, nostrum quas fugiat praesentium ratione ipsum. Nulla, iste praesentium accusamus voluptates velit sunt explicabo repellendus dolores expedita maiores ex eius. Deserunt.</p>
+            </div>
+
+            <div>
+                <p class="titulo-rodape">Contato</p>
+                <p class="paragrafo-rodape">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error odit tenetur delectus quos iste voluptate ut ipsum recusandae asperiores debitis quia incidunt architecto quod praesentium, tempore dolor commodi et doloribus?</p>
+            </div>
+        </div>
+        <div class="rodape-links">
+            <p class="paragrafo-rod">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+            <div class="icons">
+                <a href="https://www.instagram.com/gabrielavmx/"><p class="icon"><i class="fa-brands fa-instagram icon fa-xl"></i></p></a>
+                <a href=""><p class="icon"><i class="fa-brands fa-linkedin icon fa-xl"></i></p></a>
+                <a href="https://github.com/gabrielavmxx"><p class="icon"><i class="fa-brands fa-github icon fa-xl"></i></p></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    const quiz = 
+    [
+        {
+            pergunta: "lorem ipsum",
+            opcoes: 
+            [
+            "lorem ipsunbdfajfgahfah",
+            "lorem ipsunbdfajfgahfah",
+            "lorem ipsunbdfajfgahfah",
+            "lorem ipsunbdfajfgahfah"
+            ]
+        },
+        {
+            pergunta: "lorem ipsum",
+            opcoes: 
+            [
+            "lorem ipsunbdfajfgahfah",
+            "lorem ipsunbdfajfgahfah",
+            "lorem ipsunbdfajfgahfah",
+            "lorem ipsunbdfajfgahfah"
+            ]
+        },
+        {
+            pergunta: "lorem ipsum",
+            opcoes: ["","","",""]
+        },
+        {
+            pergunta: "lorem ipsum",
+            opcoes: ["","","",""]
+        },
+        {
+            pergunta: "lorem ipsum",
+            opcoes: ["","","",""]
+        },
+        {
+            pergunta: "lorem ipsum",
+            opcoes: ["","","",""]
+        },
+        {
+            pergunta: "lorem ipsum",
+            opcoes: ["","","",""]
+        },
+        {
+            pergunta: "lorem ipsum",
+            opcoes: ["","","",""]
+        },
+        {
+            pergunta: "lorem ipsum",
+            opcoes: ["","","",""]
+        },
+    ]
+    for(let i = 0; i < quiz.length; i++){
+
+        if(!(i % 2 == 0)){
+            conteudo_quiz.innerHTML += `
+            <div class="background-cor" id="${i+1}">
+                <div class="parte-cima">
+                <div class="bloco-numero bloco-1"><p>${i+1}</p></div>
+                <p class="perg-top">${quiz[i].pergunta}</p>
+                </div>
+                <div class="blocos-quiz">
+                    <a href="#${i+2}"><p class="pergunta p1">${quiz[i].opcoes[0]}</p></a>
+                    <a href="#${i+2}"><p class="pergunta p1">${quiz[i].opcoes[1]}</p></a>
+                </div>
+                <div class="blocos-quiz bloco-quiz-baixo">
+                    <a href="#${i+2}"><p class="pergunta p1">${quiz[i].opcoes[2]}</p></a>
+                    <a href="#${i+2}"><p class="pergunta p1">${quiz[i].opcoes[3]}</p></a>
+                </div>
+            </div>`
+
+        }else{
+        conteudo_quiz.innerHTML += `
+        <div id="${i+1}"> 
+            <div class="parte-cima">
+                <div class="bloco-numero"><p>${i+1}</p></div>
+                <p>${quiz[i].pergunta}</p>
+            </div>
+            <div class="blocos-quiz">
+                <a href="#${i+2}"><p class="pergunta">${quiz[i].opcoes[0]}</p></a>
+                <a href="#${i+2}"><p class="pergunta">${quiz[i].opcoes[1]}</p></a>
+            </div>
+            <div class="blocos-quiz bloco-quiz-baixo">
+                <a href="#${i+2}"><p class="pergunta">${quiz[i].opcoes[2]}</p></a>
+                <a href="#${i+2}"><p class="pergunta">${quiz[i].opcoes[3]}</p></a>
+            </div>
+        </div>`
+        }
+    }
+</script>

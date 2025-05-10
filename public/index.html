@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/6921956092.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Home</title>
 </head>
 <body>
@@ -32,6 +32,7 @@
             <div class="img-principal"></div>
         </div>
     </div>
+    
     <div class="sessao-historia" id="sessao-historia">
         <p class="titulo titulo-historia">História</p>
     </div>
@@ -59,15 +60,15 @@
         <div class="quizes">
             <div>
                 <div class="bquiz bloco-quiz11"></div>
-                <button class="btn botao-quiz">Quiz sobre surfistas</button>
+                <button class="btn botao-quiz" onclick="verificar('surfistas')">Quiz sobre surfistas</button>
             </div>
             <div>
                 <div class="bquiz bloco-quiz22"></div>
-                <button class="btn botao-quiz">Cultura do surf</button>
+                <button class="btn botao-quiz" onclick="verificar('cultura')">Cultura do surf</button>
             </div>
             <div>
                 <div class="bquiz bloco-quiz33"></div>
-                <button class="btn botao-quiz">Quiz de personalidade</button>
+                <button class="btn botao-quiz" onclick="verificar('personalidade')">Quiz de personalidade</button>
             </div>
         </div>
     </div>
@@ -100,3 +101,13 @@
     
 </body>
 </html>
+
+<script>
+    function verificar(quizzes){
+        if(sessionStorage.NOME_USUARIO == null){
+            window.location.href = "login.html";
+        }else{
+            window.location.href = quizzes+".html";
+        }
+    }
+</script>

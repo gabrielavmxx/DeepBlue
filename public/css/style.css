@@ -51,7 +51,7 @@ html
 {
     width: 50px;
     height: 50px;
-    background-image: url(img/logo.png);
+    background-image: url(../img/logo.png);
     background-size: cover;
 }
 
@@ -153,7 +153,7 @@ html
 
 .img-principal
 {
-    background-image: url(img/surf_illustrationn.png);
+    background-image: url(../img/surf_illustrationn.png);
     width: 500px;
     height: 500px;
     background-repeat: no-repeat;
@@ -202,17 +202,17 @@ html
 
 .bloco1
 {
-    background-image: url(img/surf1.jpg);
+    background-image: url(../img/surf1.jpg);
 }
 
 .bloco2
 {
-    background-image: url(img/surf2.jpg);
+    background-image: url(../img/surf2.jpg);
 }
 
 .bloco3
 {
-    background-image: url(img/surf3.jpg);
+    background-image: url(../img/surf3.jpg);
 }
 
 .img-e-paragrafo
@@ -283,20 +283,20 @@ html
 
 .bloco-quiz33
 {
-    background-image: url(img/personalidadequiz.png);
+    background-image: url(../img/personalidadequiz.png);
     background-size: 400px 320px;
     background-repeat: no-repeat;
 }
 
 .bloco-quiz22
 {
-    background-image: url(img/culturaquiz.jpg);
+    background-image: url(../img/culturaquiz.jpg);
     background-size: cover;
 }
 
 .bloco-quiz11
 {
-    background-image: url(img/surfistasquiz.png);
+    background-image: url(../img/surfistasquiz.png);
     background-size: cover;
 }
 
@@ -499,6 +499,28 @@ html
     width: 100%;
 }
 
+
+.item-cad
+{
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    justify-content: space-between;
+}
+
+.seta
+{
+    font-size: 30px;
+    color: #05162b;
+}
+
+.p-cad
+{
+    font-size: 40px;
+    font-weight: 600;
+    padding-right: 30%;
+}
+
 /*Página de login*/
 
 .login
@@ -511,6 +533,14 @@ html
     border-radius: 20px;
     border-bottom: 6px solid rgb(0,0,0,0.1);
     margin: 3.4%;
+}
+
+.item-log
+{
+    display: flex;
+    margin-bottom: 30px;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .sessao-log
@@ -528,11 +558,8 @@ html
 .p-entrar
 {
     font-size: 40px;
-    display: flex;
-    align-self: center;
     font-weight: 600;
-    margin-bottom: 30px;
-    justify-self: center;
+    padding-right: 12%;
 }
 
 .icon
@@ -614,21 +641,21 @@ html
 
 .bloco-quiz03
 {
-    background-image: url(img/surfistasquiz.png);
+    background-image: url(../img/surfistasquiz.png);
     background-repeat: no-repeat;
     background-size: contain;
 }
 
 .bloco-quiz01
 {
-    background-image: url(img/personalidadequiz.png);
+    background-image: url(../img/personalidadequiz.png);
     background-repeat: no-repeat;
     background-size: contain;
 }
 
 .bloco-quiz02
 {
-    background-image: url(img/culturaquiz.jpg);
+    background-image: url(../img/culturaquiz.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
