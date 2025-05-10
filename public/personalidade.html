@@ -24,6 +24,7 @@
 
     <div class="conteudo-quiz"
     id="conteudo_quiz">
+    <button onclick="enviarDados()">Finalizar</button>
     </div> 
 
     <div class="rodape">
@@ -76,35 +77,7 @@
             "lorem ipsunbdfajfgahfah",
             "lorem ipsunbdfajfgahfah"
             ]
-        },
-        {
-            pergunta: "lorem ipsum",
-            opcoes: ["","","",""]
-        },
-        {
-            pergunta: "lorem ipsum",
-            opcoes: ["","","",""]
-        },
-        {
-            pergunta: "lorem ipsum",
-            opcoes: ["","","",""]
-        },
-        {
-            pergunta: "lorem ipsum",
-            opcoes: ["","","",""]
-        },
-        {
-            pergunta: "lorem ipsum",
-            opcoes: ["","","",""]
-        },
-        {
-            pergunta: "lorem ipsum",
-            opcoes: ["","","",""]
-        },
-        {
-            pergunta: "lorem ipsum",
-            opcoes: ["","","",""]
-        },
+        }
     ]
     for(let i = 0; i < quiz.length; i++){
 
@@ -116,12 +89,12 @@
                 <p class="perg-top">${quiz[i].pergunta}</p>
                 </div>
                 <div class="blocos-quiz">
-                    <a href="#${i+2}"><p class="pergunta p1">${quiz[i].opcoes[0]}</p></a>
-                    <a href="#${i+2}"><p class="pergunta p1">${quiz[i].opcoes[1]}</p></a>
+                    <a href="#${i+2}" onclick="salvarDados('a', ${i})"><p class="pergunta p1">A)   ${quiz[i].opcoes[0]}</p></a>
+                    <a href="#${i+2}" onclick="salvarDados('b', ${i})"><p class="pergunta p1">B)   ${quiz[i].opcoes[1]}</p></a>
                 </div>
                 <div class="blocos-quiz bloco-quiz-baixo">
-                    <a href="#${i+2}"><p class="pergunta p1">${quiz[i].opcoes[2]}</p></a>
-                    <a href="#${i+2}"><p class="pergunta p1">${quiz[i].opcoes[3]}</p></a>
+                    <a href="#${i+2}" onclick="salvarDados('c', ${i})"><p class="pergunta p1">C)   ${quiz[i].opcoes[2]}</p></a>
+                    <a href="#${i+2}" onclick="salvarDados('d', ${i})"><p class="pergunta p1">D)   ${quiz[i].opcoes[3]}</p></a>
                 </div>
             </div>`
 
@@ -133,14 +106,40 @@
                 <p>${quiz[i].pergunta}</p>
             </div>
             <div class="blocos-quiz">
-                <a href="#${i+2}"><p class="pergunta">${quiz[i].opcoes[0]}</p></a>
-                <a href="#${i+2}"><p class="pergunta">${quiz[i].opcoes[1]}</p></a>
+                <a href="#${i+2}" onclick="salvarDados('a', ${i})"><p class="pergunta">A)   ${quiz[i].opcoes[0]}</p></a>
+                <a href="#${i+2}" onclick="salvarDados('b', ${i})"><p class="pergunta">B)   ${quiz[i].opcoes[1]}</p></a>
             </div>
             <div class="blocos-quiz bloco-quiz-baixo">
-                <a href="#${i+2}"><p class="pergunta">${quiz[i].opcoes[2]}</p></a>
-                <a href="#${i+2}"><p class="pergunta">${quiz[i].opcoes[3]}</p></a>
+                <a href="#${i+2}" onclick="salvarDados('c', ${i})"><p class="pergunta">C)   ${quiz[i].opcoes[2]}</p></a>
+                <a href="#${i+2}" onclick="salvarDados('d', ${i})"><p class="pergunta">D)   ${quiz[i].opcoes[3]}</p></a>
             </div>
         </div>`
         }
+    }
+
+    const respostas = []
+
+    for(let i = 0; i < quiz.length; i++){
+        respostas.push(null)
+    }
+
+    function salvarDados(resposta, index){
+        respostas[index] = resposta
+    }
+
+    function enviarDados(){
+        console.log(respostas)
+        fetch("http://localhost:3333/quiz/salvarRespostas", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            "idQuizServer": "1",
+            "idUsuarioServer": sessionStorage.ID_USUARIO,
+            "corretoServer": [],
+            "resultadoServer": respostas
+        }),
+    })
     }
 </script>

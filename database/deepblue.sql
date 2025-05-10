@@ -1,3 +1,4 @@
+
 create database deepblue;
 use deepblue;
 
@@ -11,23 +12,24 @@ create table usuario
 
 create table quiz
 (
-    idQuz int auto_increment primary key,
+    idQuiz int auto_increment primary key,
     descricao varchar(50)
 );
 
-create table quiz_pergunta
-(
-    idPergunta int primary key auto_increment,
-    numeroQuestao int,
-    
-);
+insert into quiz(descricao)
+values
+("Quiz de personalidade"),
+("Quiz de cultura"),
+("Quiz sobre surfistas");
 
 create table resultado_quiz
 (
     idResultado int primary key auto_increment,
-    resultado varchar(40),
+    resultado char(1),
+    correto boolean,
     fkUsuario int,
     fkQuiz int,
+    dataQuiz datetime default CURRENT_TIMESTAMP,
     foreign key (fkUsuario) references usuario (idUsuario),
     foreign key (fkQuiz) references quiz (idQuiz)
 );
