@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/quiz.css">
-    <title>Quiz de personalidade</title>
+    <title>Quiz de cultura</title>
 </head>
 <body>
     <div class="navbar">
@@ -61,73 +61,73 @@
     const quiz = 
     [
         {
-            pergunta: "Com base na sua personalidade, você se considera..",
+            pergunta: "De onde vem o gesto 'hangloose'?",
             opcoes: 
             [
-            "Confiante",
-            "Esforçado(a)",
-            "Curioso(a)",
-            "Engraçado(a)"
+            "Rei Luís XIV",
+            "Rei Osíris",
+            "Rei Ninrode",
+            "Rei Tahito" //<- essa é a certa
             ]
         },
         {
-            pergunta: "Escolha o defeito que você mais se identifica..",
+            pergunta: "De que país o surf é originado?",
             opcoes: 
             [
-            "Teimoso(a)",
-            "Preguiçoso(a)",
-            "Irritado(a)",
-            "Procrastinador(a)"
+            "Austrália",
+            "Polinésia", //<- essa é a certa
+            "Tailândia",
+            "Indonésia"
             ]
         },
         {
-            pergunta: "Qual dessas opções você prefere?",
+            pergunta: "Quantos metros tem a maior onda surfada?",
             opcoes: 
             [
-            "Queijo coalho no espeto",
-            "Anéis de cebola frito",
-            "Milho verde",
-            "Frutas"
+            "32 Metros",
+            "26 Metros",
+            "27 Metros",
+            "33 Mettros" //<- essa é a certa
             ]
         },
         {
-            pergunta: "Escolha o melhor tipo de onda..",
+            pergunta: "Qual surfista tem a maior quantidade de tiulos na história?",
             opcoes: 
             [
-            "Tubos",
-            "Fechadeira",
-            "Cavada",
-            "Espuma"
-            ]
-        },
-        {
-            pergunta: "Você costuma se arriscar?",
-            opcoes: 
-            [
-            "Não muito, só o básico",
-            "Prefiro não me arriscar nadinha",
-            "Sempre tento ter o máximo de proveito nas ondas",
-            "Sempre😎"
-            ]
-        },
-        {
-            pergunta: "Que tipo de prancha você prefere?",
-            opcoes: 
-            [
-            "LongBoard",
-            "Stand Up paddle",
-            "ShortBoard",
-            "Body"
-            ]
-        },
-        {
-            pergunta: "Qual desses surfistas é o seu favorito?",
-            opcoes: 
-            [
+            "Kelly Slater", //<- essa é a certa
             "Gabriel Medina",
-            "Italo Ferreira",
-            "Tatiana Weston-Webb",
-            "Yago Dora"
+            "Tom Curren",
+            "John John Florence"
+            ]
+        },
+        {
+            pergunta: "Quantos metros tem a maior prancha do mundo?",
+            opcoes: 
+            [
+            "3 Metros",
+            "6 Metros",
+            "9 Metros",
+            "12 Metros" //<- essa é a certa
+            ]
+        },
+        {
+            pergunta: "Qual foi o maior numero de pessoas em cima da mesma prancha?",
+            opcoes: 
+            [
+            "42 Pessoas",
+            "20 Pessoas",
+            "47 Pessoas", //<- essa é a certa
+            "32 Pessoas" 
+            ]
+        },
+        {
+            pergunta: "Em que país o surf era conhecido como 'esporte dos deuses'?",
+            opcoes: 
+            [
+                "Indonésia",
+                "Austrália",
+                "Polinésia", //<- essa é a certa
+                "Tailândia"
             ]
         }
     ]
@@ -169,10 +169,32 @@
         }
     }
 
-    const respostas = []
+    const respostass = 
+    [
+        quiz[0].opcoes.push,
+        quiz[1].opcoes.push,
+        quiz[2].opcoes.push,
+        quiz[3].opcoes.push,
+        quiz[4].opcoes.push,
+        quiz[5].opcoes.push,
+        quiz[6].opcoes.push
+    ]
+    const corretas = 
+    [
+        quiz[0].opcoes[3],
+        quiz[1].opcoes[1],
+        quiz[2].opcoes[3],
+        quiz[3].opcoes[0],
+        quiz[4].opcoes[3],
+        quiz[5].opcoes[2],
+        quiz[6].opcoes[2]
+    ]
+
+    console.log(corretas)
+    console.log(respostass)
 
     for(let i = 0; i < quiz.length; i++){
-        respostas.push(null)
+        respostas.push()
     }
 
     function salvarDados(resposta, index){
@@ -187,7 +209,7 @@
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            "idQuizServer": "1",
+            "idQuizServer": "2",
             "idUsuarioServer": sessionStorage.ID_USUARIO,
             "corretoServer": [],
             "resultadoServer": respostas
