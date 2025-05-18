@@ -39,7 +39,8 @@ p
     width: 50%;
     background-color: #1B4F72;
     color: aliceblue;
-    font-weight: 500;
+    font-weight: 700;
+    font-size: large;
 }
 
 .btn-enviar-quiz:hover

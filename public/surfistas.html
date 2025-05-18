@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/quiz.css">
     <link rel="icon" href="img/logo.png" type="image/ico">
-    <title>Quiz de cultura</title>
+    <title>Quiz sobre Surfistas</title>
 </head>
 <body>
     <div class="navbar">
@@ -62,73 +62,93 @@
     const quiz = 
     [
         {
-            pergunta: "De onde vem o gesto 'hangloose'?",
+            pergunta: "Em que estado o Gabriel Medina nasceu?",
             opcoes: 
             [
-            "Rei Luís XIV",
-            "Rei Osíris",
-            "Rei Ninrode",
-            "Rei Tahito" //<- essa é a certa
+                "Rio de Janeiro",
+                "São Paulo", //<- essa é a certa
+                "Bahia",
+                "Espírito Santo"
             ]
         },
         {
-            pergunta: "De que país o surf é originado?",
+            pergunta: "Quantos anos tem o Ítalo Ferreira?",
             opcoes: 
             [
-            "Austrália",
-            "Polinésia", //<- essa é a certa
-            "Tailândia",
-            "Indonésia"
+                "31 anos",
+                "29 anos",
+                "27 anos",
+                "33 anos" //<- essa é a certa
             ]
         },
         {
-            pergunta: "Quantos metros tem a maior onda surfada?",
+            pergunta: "Quem foi a finalista dos jogos olímpicos de 2024?",
             opcoes: 
             [
-            "32 Metros",
-            "26 Metros",
-            "27 Metros",
-            "33 Mettros" //<- essa é a certa
+                "Maya Gabeira",
+                "Stephanie Gilmore",
+                "Tatiana Weston-Webb", //<- essa é a certa
+                "Silvana Lima" 
             ]
         },
         {
-            pergunta: "Qual o nome da principal liga de surf profissional do mundo?",
+            pergunta: "Qual surfista tem a maior quantidade de tiulos na história?",
             opcoes: 
             [
-            "World Surf League", //<- essa é a certa
-            "WSL Tour Pro",
-            "Surf League World",
-            "ASP Tour"
+                "Kelly Slater", //<- essa é a certa
+                "Gabriel Medina",
+                "Tom Curren",
+                "John John Florence"
             ]
         },
         {
-            pergunta: "Quantos metros tem a maior prancha do mundo?",
+            pergunta: " Ítalo Ferreira ganhou medalha de ouro nas Olimpíadas de Tóquio em que ano?",
             opcoes: 
             [
-            "3 Metros",
-            "6 Metros",
-            "9 Metros",
-            "12 Metros" //<- essa é a certa
+                "2016",
+                "2021", //<- essa é a certa
+                "2019",
+                "2024"
             ]
         },
         {
-            pergunta: "Qual foi o maior numero de pessoas em cima da mesma prancha?",
+            pergunta: "Qual surfista brasileiro é conhecido como 'Mineirinho'?",
             opcoes: 
             [
-            "42 Pessoas",
-            "20 Pessoas",
-            "47 Pessoas", //<- essa é a certa
-            "32 Pessoas" 
+                "Gabriel Medina",
+                "Ítalo Ferreira",
+                "Yago Dora",
+                "Adriano de Souza" //<- essa é a certa
             ]
         },
         {
-            pergunta: "Em que país o surf era conhecido como 'esporte dos deuses'?",
+            pergunta: "Quem foi a primeira mulher brasileira a entrar no circuito mundial da WSL?",
             opcoes: 
             [
-                "Indonésia",
+                "Tita Tavares",  //<- essa é a certa
+                "Marina Werneck",
+                "Silvana Lima",
+                "Maya Gabeira"
+            ]
+        },
+        {
+            pergunta: "Qual surfista é famoso por surfar ondas gigantes em Nazaré?",
+            opcoes: 
+            [
+                "Mick Fanning",  
+                "Filipe Toledo",
+                "Maya Gabeira",//<- essa é a certa
+                "Stephanie Gilmore"
+            ]
+        },
+        {
+            pergunta: " John John Florence é natural de qual lugar?",
+            opcoes: 
+            [
+                "Havaí",  //<- essa é a certa
+                "Califórnia",
                 "Austrália",
-                "Polinésia", //<- essa é a certa
-                "Tailândia"
+                "África do Sul"
             ]
         }
     ]
@@ -174,13 +194,15 @@
 
     const corretas = 
     [
-        quiz[0].opcoes[3],
-        quiz[1].opcoes[1],
-        quiz[2].opcoes[3],
+        quiz[0].opcoes[1],
+        quiz[1].opcoes[0],
+        quiz[2].opcoes[2],
         quiz[3].opcoes[0],
-        quiz[4].opcoes[3],
-        quiz[5].opcoes[2],
-        quiz[6].opcoes[2]
+        quiz[4].opcoes[1],
+        quiz[5].opcoes[3],
+        quiz[6].opcoes[1],
+        quiz[7].opcoes[2],
+        quiz[8].opcoes[0]
     ]
 
     for(let i = 0; i < quiz.length; i++){
@@ -216,7 +238,7 @@
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                "idQuizServer": "2",
+                "idQuizServer": "3",
                 "idUsuarioServer": sessionStorage.ID_USUARIO,
                 "corretoServer": validacaoCorreto,
                 "resultadoServer": respostas
