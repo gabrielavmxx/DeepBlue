@@ -7,7 +7,7 @@
 .conteudo-dashboard{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: start;
 }
 
 .items-dashboard
@@ -15,30 +15,35 @@
     display: flex;
     background-color: #1B4F72;  
     flex-direction: column;
-    padding: 0px 60px;
+    padding: 150px 25px;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    gap: 10%;
 }
 
-.paragrafo
+.items-dashboard:hover
 {
-    font-weight: 500;
+    display: flex;
+    width: 150px;
+    transition: ease-in-out 0.5;
+}
+
+.items-dashboard-inv:hover
+{
+    display: flex;
+}
+
+.icone
+{
     color: aliceblue;
+    font-size: 20px;
 }
-
-.paragrafo:hover
-{
-    transition: all 0.2s ease-out;
-    transform: scale(1.1);
-}
-
 .graficos-dashboard
 {
-   padding-right: 25%;
-   margin: 20px;
    display: flex;
-   flex-direction: column;
+   flex-direction: row;
    width: 35%;
    align-items: center;
+   padding: 100px 150px;
    gap: 80px;
 }

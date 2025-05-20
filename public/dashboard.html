@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/dashboard.css">
     <link rel="icon" href="img/logo.png" type="image/ico">
+    <script src="https://kit.fontawesome.com/6921956092.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Dashboard</title>
 </head>
@@ -26,11 +27,22 @@
 
     <div class="conteudo-dashboard">
         <div class="items-dashboard">
-            <a href=""><p class="paragrafo">Estatisticas</p></a>
-            <a href="quiz.html"><p class="paragrafo">Quiz</p></a>
-            <a href=""><p class="paragrafo">Perfil</p></a>
-            <a href=""><p class="paragrafo">Meus resultados</p></a>
+            <a href="index.html"><i class="fa-solid fa-house icone"></i></a>
+            <a href=""><i class="fa-solid fa-chart-pie icone"></i></a>
+            <a href="quiz.html"><i class="fa-solid fa-question icone"></i></a>
+            <a href=""><i class="fa-solid fa-user icone"></i></a>
+            <a href=""><i class="fa-solid fa-file icone"></i></a> <!--Meus resultados-->
         </div>
+
+        <div class="items-dashboard-inv" style="display: none;">
+            <a href="index.html"><i class="fa-solid fa-house icone"></i></a>
+            <a href=""><i class="fa-solid fa-chart-pie icone"></i></a>
+            <a href="quiz.html"><i class="fa-solid fa-question icone"></i></a>
+            <a href=""><i class="fa-solid fa-user icone"></i></a>
+            <a href=""><i class="fa-solid fa-file icone"></i></a> <!--Meus resultados-->
+        </div>
+
+
         <div class="graficos-dashboard">
             <canvas class="grafico g1" id="myChart1"></canvas>
             <canvas class="grafico g2" id="myChart2"></canvas>
@@ -72,10 +84,10 @@
     new Chart(ctx1, {
     type: 'bar',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['Questão 1', 'Questão 2', 'Questão 3', 'Questão 4', 'Questão 5', 'Questão 6', 'Questão 7'],
         datasets: [{
         label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
+        data: [],
         borderWidth: 1
         }]
     },
@@ -89,7 +101,7 @@
     });
 
     new Chart(ctx2, {
-    type: 'polarArea',
+    type: 'line',
     data: {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
         datasets: [{
