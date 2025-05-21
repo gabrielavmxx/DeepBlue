@@ -69,7 +69,8 @@
             "Esforçado(a)",
             "Curioso(a)",
             "Engraçado(a)"
-            ]
+            ],
+            questao: 1
         },
         {
             pergunta: "Escolha o defeito que você mais se identifica..",
@@ -79,7 +80,8 @@
             "Preguiçoso(a)",
             "Irritado(a)",
             "Procrastinador(a)"
-            ]
+            ],
+            questao: 2
         },
         {
             pergunta: "Qual dessas opções você prefere?",
@@ -89,7 +91,8 @@
             "Anéis de cebola frito",
             "Milho verde",
             "Frutas"
-            ]
+            ],
+            questao: 3
         },
         {
             pergunta: "Escolha o melhor tipo de onda..",
@@ -99,7 +102,8 @@
             "Fechadeira",
             "Cavada",
             "Espuma"
-            ]
+            ],
+            questao: 4
         },
         {
             pergunta: "Você costuma se arriscar?",
@@ -109,7 +113,8 @@
             "Prefiro não me arriscar nadinha",
             "Sempre tento ter o máximo de proveito nas ondas",
             "Sempre😎"
-            ]
+            ],
+            questao: 5
         },
         {
             pergunta: "Que tipo de prancha você prefere?",
@@ -119,7 +124,8 @@
             "Stand Up paddle",
             "ShortBoard",
             "Body"
-            ]
+            ],
+            questao: 6
         },
         {
             pergunta: "Qual desses surfistas é o seu favorito?",
@@ -129,7 +135,8 @@
             "Italo Ferreira",
             "Tatiana Weston-Webb",
             "Yago Dora"
-            ]
+            ],
+            questao: 7
         }
     ]
     for(let i = 0; i < quiz.length; i++){
@@ -181,6 +188,12 @@
     }
 
     function enviarDados(){
+        const numQuestao = []
+
+        for(let i = 0; i < respostas.length; i++){
+            numQuestao.push(quiz[i].questao)
+        }
+
         console.log(respostas)
         fetch("http://localhost:3333/quiz/salvarRespostas", {
         method: "POST",
@@ -191,6 +204,7 @@
             "idQuizServer": "1",
             "idUsuarioServer": sessionStorage.ID_USUARIO,
             "corretoServer": [],
+            "corretoServer": validacaoCorreto,
             "resultadoServer": respostas
         }),
     })

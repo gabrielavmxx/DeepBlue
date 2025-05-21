@@ -69,7 +69,8 @@
                 "São Paulo", //<- essa é a certa
                 "Bahia",
                 "Espírito Santo"
-            ]
+            ],
+            questao: 1
         },
         {
             pergunta: "Quantos anos tem o Ítalo Ferreira?",
@@ -79,7 +80,8 @@
                 "29 anos",
                 "27 anos",
                 "33 anos" //<- essa é a certa
-            ]
+            ],
+            questao: 2
         },
         {
             pergunta: "Quem foi a finalista dos jogos olímpicos de 2024?",
@@ -89,7 +91,8 @@
                 "Stephanie Gilmore",
                 "Tatiana Weston-Webb", //<- essa é a certa
                 "Silvana Lima" 
-            ]
+            ],
+            questao: 3
         },
         {
             pergunta: "Qual surfista tem a maior quantidade de tiulos na história?",
@@ -99,7 +102,8 @@
                 "Gabriel Medina",
                 "Tom Curren",
                 "John John Florence"
-            ]
+            ],
+            questao: 4
         },
         {
             pergunta: " Ítalo Ferreira ganhou medalha de ouro nas Olimpíadas de Tóquio em que ano?",
@@ -109,7 +113,8 @@
                 "2021", //<- essa é a certa
                 "2019",
                 "2024"
-            ]
+            ],
+            questao: 5
         },
         {
             pergunta: "Qual surfista brasileiro é conhecido como 'Mineirinho'?",
@@ -119,7 +124,8 @@
                 "Ítalo Ferreira",
                 "Yago Dora",
                 "Adriano de Souza" //<- essa é a certa
-            ]
+            ],
+            questao: 6
         },
         {
             pergunta: "Quem foi a primeira mulher brasileira a entrar no circuito mundial da WSL?",
@@ -129,7 +135,8 @@
                 "Marina Werneck",
                 "Silvana Lima",
                 "Maya Gabeira"
-            ]
+            ],
+            questao: 7
         },
         {
             pergunta: "Qual surfista é famoso por surfar ondas gigantes em Nazaré?",
@@ -139,7 +146,8 @@
                 "Filipe Toledo",
                 "Maya Gabeira",//<- essa é a certa
                 "Stephanie Gilmore"
-            ]
+            ],
+            questao: 8
         },
         {
             pergunta: " John John Florence é natural de qual lugar?",
@@ -149,7 +157,8 @@
                 "Califórnia",
                 "Austrália",
                 "África do Sul"
-            ]
+            ],
+            questao: 9
         }
     ]
     for(let i = 0; i < quiz.length; i++){
@@ -217,6 +226,7 @@
         let contador = 0
         var estaCerto
         const validacaoCorreto = []
+        const numQuestao = []
 
         for(let i = 0; i < respostas.length; i++){
             if(quiz[i].opcoes[respostas[i]] != corretas[i]){
@@ -226,6 +236,7 @@
                 estaCerto = true
             }
             validacaoCorreto.push(estaCerto)
+            numQuestao.push(quiz[i].questao)
         }
         
         alert('Você acertou ' + contador + ' questões')
@@ -241,6 +252,7 @@
                 "idQuizServer": "3",
                 "idUsuarioServer": sessionStorage.ID_USUARIO,
                 "corretoServer": validacaoCorreto,
+                "numeroQuestaoServer": numQuestao,
                 "resultadoServer": respostas
             })
         })

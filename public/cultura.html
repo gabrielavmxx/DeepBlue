@@ -69,7 +69,8 @@
             "Rei Osíris",
             "Rei Ninrode",
             "Rei Tahito" //<- essa é a certa
-            ]
+            ],
+            questao: 1
         },
         {
             pergunta: "De que país o surf é originado?",
@@ -79,7 +80,8 @@
             "Polinésia", //<- essa é a certa
             "Tailândia",
             "Indonésia"
-            ]
+            ],
+            questao: 2
         },
         {
             pergunta: "Quantos metros tem a maior onda surfada?",
@@ -89,7 +91,8 @@
             "26 Metros",
             "27 Metros",
             "33 Mettros" //<- essa é a certa
-            ]
+            ],
+            questao: 3
         },
         {
             pergunta: "Qual o nome da principal liga de surf profissional do mundo?",
@@ -99,7 +102,8 @@
             "WSL Tour Pro",
             "Surf League World",
             "ASP Tour"
-            ]
+            ],
+            questao: 4
         },
         {
             pergunta: "Quantos metros tem a maior prancha do mundo?",
@@ -109,7 +113,8 @@
             "6 Metros",
             "9 Metros",
             "12 Metros" //<- essa é a certa
-            ]
+            ],
+            questao: 5
         },
         {
             pergunta: "Qual foi o maior numero de pessoas em cima da mesma prancha?",
@@ -119,7 +124,8 @@
             "20 Pessoas",
             "47 Pessoas", //<- essa é a certa
             "32 Pessoas" 
-            ]
+            ],
+            questao: 6
         },
         {
             pergunta: "Em que país o surf era conhecido como 'esporte dos deuses'?",
@@ -129,7 +135,8 @@
                 "Austrália",
                 "Polinésia", //<- essa é a certa
                 "Tailândia"
-            ]
+            ],
+            questao: 7
         }
     ]
     for(let i = 0; i < quiz.length; i++){
@@ -195,6 +202,7 @@
         let contador = 0
         var estaCerto
         const validacaoCorreto = []
+        const numQuestao = []
 
         for(let i = 0; i < respostas.length; i++){
             if(quiz[i].opcoes[respostas[i]] != corretas[i]){
@@ -204,6 +212,7 @@
                 estaCerto = true
             }
             validacaoCorreto.push(estaCerto)
+            numQuestao.push(quiz[i].questao)
         }
         
         alert('Você acertou ' + contador + ' questões')
@@ -216,9 +225,10 @@
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                "idQuizServer": "2",
+                "idQuizServer": "3",
                 "idUsuarioServer": sessionStorage.ID_USUARIO,
                 "corretoServer": validacaoCorreto,
+                "numeroQuestaoServer": numQuestao,
                 "resultadoServer": respostas
             })
         })

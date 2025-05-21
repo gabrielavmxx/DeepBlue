@@ -28,6 +28,10 @@
     transition: ease-in-out 0.5;
 }
 
+.items-dashboard .p-hidden:hover{
+    color: aliceblue;
+}
+
 .items-dashboard-inv:hover
 {
     display: flex;
@@ -46,4 +50,9 @@
    align-items: center;
    padding: 100px 150px;
    gap: 80px;
+}
+
+.p-hidden
+{
+    color: #1B4F72; 
 }

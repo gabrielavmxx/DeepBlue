@@ -6,6 +6,11 @@ body
     margin: 0;
 }
 
+button
+{
+    cursor: pointer;
+}
+
 p
 {
     font-family: "Inter", sans-serif;
@@ -254,6 +259,7 @@ html
 .botao-quiz:hover
 {
     transition: all 0.2s ease-in-out;
+    cursor: pointer;
     background-color: #05162b;
     transform: scale(1.2);
     box-shadow: 0 0 15px 5px rgba(10, 83, 132, 0.2);

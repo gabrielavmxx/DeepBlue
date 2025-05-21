@@ -3,6 +3,7 @@ var quizModel = require("../models/quizModel");
 function salvarRespostas(req, res){
     var resultado = req.body.resultadoServer;
     var correto = req.body.corretoServer;
+    var numQuestao = req.body.numeroQuestaoServer;
     var idUsuario = req.body.idUsuarioServer;
     var idQuiz = req.body.idQuizServer;
 
@@ -10,7 +11,7 @@ function salvarRespostas(req, res){
         res.status(400).json({mensagem: "Quantidade de respostas incoerrente"})
     }
 
-    quizModel.salvarRespostas(idUsuario, idQuiz, correto, resultado)
+    quizModel.salvarRespostas(idUsuario, numQuestao, idQuiz, correto, resultado)
 
     .then( //espera executar o resto da funcao para executar essa parte
         function (resultadoAutenticar) {

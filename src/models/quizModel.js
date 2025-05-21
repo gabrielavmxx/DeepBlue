@@ -1,22 +1,22 @@
 var database = require("../../database/config")
 
-function salvarRespostas(idUsuario, idQuiz, correto, resultado)
+function salvarRespostas(idUsuario, numQuestao , idQuiz, correto, resultado)
 {
     var instrucaoSql =  
     `
-        INSERT INTO resultado_quiz (resultado, correto, fkUsuario, fkQuiz) VAlUES
+        INSERT INTO resultado_quiz (resultado, correto, numQuestao, fkUsuario, fkQuiz) VAlUES
     `
     for(let i = 0; i < resultado.length; i++){
         
         if(correto.length > 0){
             instrucaoSql += 
             `
-            ("${resultado[i]}", ${correto[i]}, ${idUsuario}, ${idQuiz})
+            ("${resultado[i]}", ${correto[i]}, ${numQuestao[i]} , ${idUsuario}, ${idQuiz})
             `
         }else{
             instrucaoSql += 
             `
-            ("${resultado[i]}", null, ${idUsuario}, ${idQuiz})
+            ("${resultado[i]}", null, ${numQuestao[i]} , ${idUsuario}, ${idQuiz})
             `
         }
         
