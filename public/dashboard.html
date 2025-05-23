@@ -78,44 +78,74 @@
 </html>
 
 <script>
-    const ctx1 = document.getElementById('myChart1');
-    const ctx2 = document.getElementById('myChart2');
+    window.onload = async function () {
+        const idUsuario = sessionStorage.ID_USUARIO;
+        const idQuiz = 1; //a ou o número do quiz correspondente
 
-    new Chart(ctx1, {
-    type: 'bar',
-    data: {
-        labels: ['Questão 1', 'Questão 2', 'Questão 3', 'Questão 4', 'Questão 5', 'Questão 6', 'Questão 7'],
-        datasets: [{
-        label: '# of Votes',
-        data: [],
-        borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-        y: {
-            beginAtZero: true
+        if (!idUsuario) {
+            alert("Usuário não logado.");
+            return;
         }
-        }
-    }
-    });
 
-    new Chart(ctx2, {
-    type: 'line',
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
-        borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-        y: {
-            beginAtZero: true
+        try {
+            const res = await fetch(`/dashboard/acessarTodos?idUsuarioServer=${idUsuario}&idQuizServer=${idQuiz}`);
+            const dados = await res.json();
+
+            const corretos = dados.filter(item => item.correto === 1).length;
+            const incorretos = dados.length - corretos;
+
+            const ctx1 = document.getElementById('myChart1');
+            if (ctx1) {
+                new Chart(ctx1, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Acertos', 'Erros'],
+                        datasets: [{
+                            data: [corretos, incorretos],
+                            backgroundColor: ['#4CAF50', '#F44336']
+                        }]
+                    },
+                    options: {
+                        responsive: true
+                    }
+                });
+            }
+        } catch (erro) {
+            console.error('Erro ao buscar dados do usuário logado:', erro);
         }
+
+        try {
+            const resTotal = await fetch(`/dashboard/acertosGerais`);
+            const dadosTotal = await resTotal.json();
+
+            const totalCorretos = dadosTotal.length;
+
+            const ctx2 = document.getElementById('myChart2');
+            if (ctx2) {
+                new Chart(ctx2, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Total de Acertos'],
+                        datasets: [{
+                            label: 'Acertos no geral',
+                            data: [totalCorretos],
+                            backgroundColor: ['#2196F3']
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                stepSize: 1
+                            }
+                        }
+                    }
+                });
+            }
+        } catch (erro) {
+            console.error('Erro ao buscar dados totais:', erro);
         }
-    }
-    });
+    };
+
 </script>

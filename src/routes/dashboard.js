@@ -3,9 +3,18 @@ var router = express.Router();
 
 var dashboardController = require("../controllers/dashboardController");
 
-//Recebendo os dados do html e direcionando para a função salvarRespostas de quizController.js
-router.get("/acessarCorreto", function (req, res) {
+router.get("/acessarCorreto/:idUsuario/:idQuiz", function (req, res) {
     dashboardController.selectCerto(req, res);
-})
+});
+
+router.get("/acessarTodos/:idUsuario/:idQuiz", function (req, res) {
+    dashboardController.exibirTodos(req, res);
+});
+
+router.get("/acertosGerais", function (req, res) {
+    dashboardController.listarAcertosGerais(req, res);
+});
+
+
 
 module.exports = router;
