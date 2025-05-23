@@ -1,8 +1,7 @@
 var dashboardModel = require("../models/dashboardModel");
 
 function selectCerto(req, res) {
-    var idUsuario = req.query.idUsuarioServer;
-    var idQuiz = req.query.idQuizServer;
+    var {idUsuario, idQuiz} = req.params;
 
     dashboardModel.acessarCorretos(idUsuario, idQuiz)
         .then((resultado) => {
@@ -15,7 +14,9 @@ function selectCerto(req, res) {
 }
 
 function listarAcertosGerais(req, res) {
-    dashboardModel.acertosGerais()
+    var idQuiz = req.params.idQuiz;
+
+    dashboardModel.acertosGerais(idQuiz)
         .then((resultado) => {
             res.status(200).json(resultado);
         })

@@ -21,7 +21,7 @@ function acertosGerais(idQuiz) {
         SELECT numQuestao, COUNT(*) AS totalAcertos
         FROM resultado_quiz
         WHERE correto = 1
-        AND WHERE fkQuiz = ${idQuiz}
+        AND fkQuiz = ${idQuiz}
         GROUP BY numQuestao
         ORDER BY numQuestao;
     `;

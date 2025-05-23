@@ -88,7 +88,7 @@
         }
 
         try {
-            const res = await fetch(`/dashboard/acessarTodos?idUsuarioServer=${idUsuario}&idQuizServer=${idQuiz}`);
+            const res = await fetch(`/dashboard/acessarTodos/${idUsuario}/${idQuiz}`);
             const dados = await res.json();
 
             const corretos = dados.filter(item => item.correto === 1).length;
@@ -115,7 +115,7 @@
         }
 
         try {
-            const resTotal = await fetch(`/dashboard/acertosGerais`);
+            const resTotal = await fetch(`/dashboard/acertosGerais/${idQuiz}`);
             const dadosTotal = await resTotal.json();
 
             const totalCorretos = dadosTotal.length;
