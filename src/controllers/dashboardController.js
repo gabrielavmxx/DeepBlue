@@ -26,7 +26,27 @@ function listarAcertosGerais(req, res) {
         });
 }
 
+var dashboardModel = require("../models/dashboardModel");
+
+function totalQuestoes(req, res) {
+    var idQuiz = req.params.idQuiz;
+
+    dashboardModel.totalQuestoes(idQuiz)
+        .then(resultado => {
+            if (resultado.length > 0) {
+                res.json({ total: resultado[0].total });
+            } else {
+                res.json({ total: 0 });
+            }
+        })
+        .catch(erro => {
+            console.error(erro);
+            res.status(500).json(erro);
+        });
+}
+
 module.exports = {
     selectCerto,
-    listarAcertosGerais
+    listarAcertosGerais,
+    totalQuestoes
 };

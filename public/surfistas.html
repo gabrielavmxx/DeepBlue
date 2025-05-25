@@ -34,20 +34,20 @@
         <div class="sessao-rodape">
             <div class="titulo-nome">
                 <p class="titulo-rodape">DeepBlue</p>
-                <p class="paragrafo-rodape">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est laboriosam earum, cumque odit, nesciunt modi accusamus omnis voluptas minima incidunt ab tenetur rerum. Sunt iusto inventore voluptatibus, accusamus perferendis debitis?</p>
+                <a class="a-rodape" href="index.html#sessao-historia"><p class="paragrafo-rodape">Cultura</p></a>
+                <a class="a-rodape"  href="sobremim.html"><p class="paragrafo-rodape">História</p></a>
             </div>
-            <div>
-                <p class="titulo-rodape">Links</p>
-                <p class="paragrafo-rodape">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam, nostrum quas fugiat praesentium ratione ipsum. Nulla, iste praesentium accusamus voluptates velit sunt explicabo repellendus dolores expedita maiores ex eius. Deserunt.</p>
-            </div>
-
-            <div>
-                <p class="titulo-rodape">Contato</p>
-                <p class="paragrafo-rodape">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error odit tenetur delectus quos iste voluptate ut ipsum recusandae asperiores debitis quia incidunt architecto quod praesentium, tempore dolor commodi et doloribus?</p>
+            <div class="titulo-nome">
+                <p class="titulo-rodape">Sites Relacionados</p>
+                <a class="a-rodape" href="https://www.worldsurfleague.com/"><p class="paragrafo-rodape">WSL</p></a>
+                <a class="a-rodape"  href="https://www.waves.com.br/"><p class="paragrafo-rodape">Waves</p></a>
+                <a class="a-rodape"  href="https://ge.globo.com/surfe/"><p class="paragrafo-rodape">Surf ge</p></a>
             </div>
         </div>
         <div class="rodape-links">
-            <p class="paragrafo-rod">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+            <div class="paragrafo-rod-item">
+                <p class="paragrafo-rod">Desenvolvido por Gabriela Villegas Montero 1CCOA 2025</p>
+            </div>
             <div class="icons">
                 <a href="https://www.instagram.com/gabrielavmx/"><p class="icon"><i class="fa-brands fa-instagram icon fa-xl"></i></p></a>
                 <a href=""><p class="icon"><i class="fa-brands fa-linkedin icon fa-xl"></i></p></a>
@@ -171,12 +171,12 @@
                 <p class="perg-top">${quiz[i].pergunta}</p>
                 </div>
                 <div class="blocos-quiz">
-                    <a href="#${i+2}" onclick="salvarDados(0, ${i})"><p class="pergunta p1">A)   ${quiz[i].opcoes[0]}</p></a>
-                    <a href="#${i+2}" onclick="salvarDados(1, ${i})"><p class="pergunta p1">B)   ${quiz[i].opcoes[1]}</p></a>
+                    <a href="#${i+2}" onclick="handleClick(event, 0, ${i}, this)"><p class="pergunta p1" data-opcao="0" >A)   ${quiz[i].opcoes[0]}</p></a>
+                    <a href="#${i+2}" onclick="handleClick(event, 1, ${i}, this)"><p class="pergunta p1" data-opcao="1" >B)   ${quiz[i].opcoes[1]}</p></a>
                 </div>
                 <div class="blocos-quiz bloco-quiz-baixo">
-                    <a href="#${i+2}" onclick="salvarDados(2, ${i})"><p class="pergunta p1">C)   ${quiz[i].opcoes[2]}</p></a>
-                    <a href="#${i+2}" onclick="salvarDados(3, ${i})"><p class="pergunta p1">D)   ${quiz[i].opcoes[3]}</p></a>
+                    <a href="#${i+2}" onclick="handleClick(event, 2, ${i}, this)"><p class="pergunta p1" data-opcao="2" >C)   ${quiz[i].opcoes[2]}</p></a>
+                    <a href="#${i+2}" onclick="handleClick(event, 3, ${i}, this)"><p class="pergunta p1" data-opcao="3" >D)   ${quiz[i].opcoes[3]}</p></a>
                 </div>
             </div>`
 
@@ -188,12 +188,12 @@
                 <p>${quiz[i].pergunta}</p>
             </div>
             <div class="blocos-quiz">
-                <a href="#${i+2}" onclick="salvarDados(0, ${i})"><p class="pergunta">A)   ${quiz[i].opcoes[0]}</p></a>
-                <a href="#${i+2}" onclick="salvarDados(1, ${i})"><p class="pergunta">B)   ${quiz[i].opcoes[1]}</p></a>
+                <a href="#${i+2}" onclick="handleClick(event, 0, ${i}, this)"><p class="pergunta" data-opcao="0" >A)   ${quiz[i].opcoes[0]}</p></a>
+                <a href="#${i+2}" onclick="handleClick(event, 1, ${i}, this)"><p class="pergunta" data-opcao="1" >B)   ${quiz[i].opcoes[1]}</p></a>
             </div>
             <div class="blocos-quiz bloco-quiz-baixo">
-                <a href="#${i+2}" onclick="salvarDados(2, ${i})"><p class="pergunta">C)   ${quiz[i].opcoes[2]}</p></a>
-                <a href="#${i+2}" onclick="salvarDados(3, ${i})"><p class="pergunta">D)   ${quiz[i].opcoes[3]}</p></a>
+                <a href="#${i+2}" onclick="handleClick(event, 2, ${i}, this)"><p class="pergunta" data-opcao="2" >C)   ${quiz[i].opcoes[2]}</p></a>
+                <a href="#${i+2}" onclick="handleClick(event, 3, ${i}, this)"><p class="pergunta" data-opcao="3" >D)   ${quiz[i].opcoes[3]}</p></a>
             </div>
         </div>`
         }
@@ -218,8 +218,41 @@
         respostas.push()
     }
 
-    function salvarDados(resposta, index){
-        respostas[index] = resposta
+    function handleClick(event, opcaoSelecionada, index, elementoClicado){
+        event.preventDefault(); //nao deixa a navegacao automatica
+
+        salvarDados(opcaoSelecionada, index, elementoClicado);
+
+        setTimeout(() => {
+            const proximoId = index + 2; 
+            const proximoElemento = document.getElementById(proximoId);
+
+            if(proximoElemento) {
+                proximoElemento.scrollIntoView({ behavior: 'smooth' });
+                window.location.hash = `#${proximoId}`;
+            }
+        }, 1000);
+    }
+
+    function salvarDados(opcaoSelecionada, index, elementoClicado){
+        respostas[index] = opcaoSelecionada
+
+        const todasOpcoes = elementoClicado.closest('div').parentElement.querySelectorAll(".pergunta")
+
+        todasOpcoes.forEach((opcao, i)=> {
+            opcao.classList.remove('correta', 'incorreta')
+            if(i === opcaoSelecionada){
+                if(quiz[index].opcoes[i] === corretas[index]){
+                    opcao.classList.add('correta')
+                } else {
+                    opcao.classList.add('incorreta')
+                }
+            }
+
+            if(quiz[index].opcoes[i] === corretas[index]){
+                opcao.classList.add('correta')
+            }
+        })
     }
 
     function enviarDados(){
@@ -270,6 +303,4 @@
             alert("Ocorreu um erro ao enviar os dados. Tente novamente.")
         })
 }
-
-
 </script>

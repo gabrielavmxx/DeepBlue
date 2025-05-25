@@ -34,18 +34,19 @@
             <a href=""><i class="fa-solid fa-file icone"></i> <p class="p-hideen">Meus resultados</p> </a>
         </div>
 
-        <div class="items-dashboard-inv" style="display: none;">
-            <a href="index.html"><i class="fa-solid fa-house icone"></i></a>
-            <a href=""><i class="fa-solid fa-chart-pie icone"></i></a>
-            <a href="quiz.html"><i class="fa-solid fa-question icone"></i></a>
-            <a href=""><i class="fa-solid fa-user icone"></i></a>
-            <a href=""><i class="fa-solid fa-file icone"></i></a> <!--Meus resultados-->
-        </div>
-
-
-        <div class="graficos-dashboard">
-            <canvas class="grafico g1" id="myChart1"></canvas>
-            <canvas class="grafico g2" id="myChart2"></canvas>
+        <div class="grafico-label">
+            <div class="select-quiz">
+                <label for="selectQuiz">Escolha o Quiz</label>
+                <select id="selectQuiz">
+                    <option value="2">Cultura</option>
+                    <option value="3">Surfistas</option>
+                </select>
+            </div>
+            <div class="graficos-dashboard">
+                
+                <canvas class="grafico g1" id="myChart1"></canvas>
+                <canvas class="grafico g2" id="myChart2"></canvas>
+            </div>
         </div>
     </div>
 
@@ -53,24 +54,24 @@
         <div class="sessao-rodape">
             <div class="titulo-nome">
                 <p class="titulo-rodape">DeepBlue</p>
-                <p class="paragrafo-rodape">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est laboriosam earum, cumque odit, nesciunt modi accusamus omnis voluptas minima incidunt ab tenetur rerum. Sunt iusto inventore voluptatibus, accusamus perferendis debitis?</p>
+                <a class="a-rodape" href="index.html#sessao-historia"><p class="paragrafo-rodape">Cultura</p></a>
+                <a class="a-rodape"  href="sobremim.html"><p class="paragrafo-rodape">História</p></a>
             </div>
-            <div>
-                <p class="titulo-rodape">Links</p>
-                <p class="paragrafo-rodape">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam, nostrum quas fugiat praesentium ratione ipsum. Nulla, iste praesentium accusamus voluptates velit sunt explicabo repellendus dolores expedita maiores ex eius. Deserunt.</p>
-            </div>
-
-            <div>
-                <p class="titulo-rodape">Contato</p>
-                <p class="paragrafo-rodape">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error odit tenetur delectus quos iste voluptate ut ipsum recusandae asperiores debitis quia incidunt architecto quod praesentium, tempore dolor commodi et doloribus?</p>
+            <div class="titulo-nome">
+                <p class="titulo-rodape">Sites Relacionados</p>
+                <a class="a-rodape" href="https://www.worldsurfleague.com/"><p class="paragrafo-rodape">WSL</p></a>
+                <a class="a-rodape"  href="https://www.waves.com.br/"><p class="paragrafo-rodape">Waves</p></a>
+                <a class="a-rodape"  href="https://ge.globo.com/surfe/"><p class="paragrafo-rodape">Surf ge</p></a>
             </div>
         </div>
         <div class="rodape-links">
-            <p class="paragrafo-rod">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+            <div class="paragrafo-rod-item">
+                <p class="paragrafo-rod">Desenvolvido por Gabriela Villegas Montero 1CCOA 2025</p>
+            </div>
             <div class="icons">
-                <p class="icon"><i class="fa-brands fa-instagram icon fa-xl"></i></p>
-                <p class="icon"><i class="fa-brands fa-linkedin icon fa-xl"></i></p>
-                <p class="icon"><i class="fa-brands fa-github icon fa-xl"></i></p>
+                <a href="https://www.instagram.com/gabrielavmx/"><p class="icon"><i class="fa-brands fa-instagram icon fa-xl"></i></p></a>
+                <a href=""><p class="icon"><i class="fa-brands fa-linkedin icon fa-xl"></i></p></a>
+                <a href="https://github.com/gabrielavmxx"><p class="icon"><i class="fa-brands fa-github icon fa-xl"></i></p></a>
             </div>
         </div>
     </div>
@@ -78,38 +79,38 @@
 </html>
 
 <script>
-    window.onload = async function () {
-        const idUsuario = sessionStorage.ID_USUARIO;
-        const idQuiz = 3; //a ou o número do quiz correspondente
+    let chart1 = null;
+    let chart2 = null;
 
-        if (!idUsuario) {
-            alert("Usuário não logado.");
-            return;
-        }
-
+    async function carregarGraficos(idUsuario, idQuiz) {
         try {
             const res = await fetch(`/dashboard/acessarTodos/${idUsuario}/${idQuiz}`);
             const dados = await res.json();
 
-            const corretos = dados.filter(item => item.correto === 1).length;
-            const incorretos = dados.length - corretos;
+            let corretos = 0;
+            let incorretos = 0;
 
-            const ctx1 = document.getElementById('myChart1');
-            if (ctx1) {
-                new Chart(ctx1, {
-                    type: 'pie',
-                    data: {
-                        labels: ['Acertos', 'Erros'],
-                        datasets: [{
-                            data: [corretos, incorretos],
-                            backgroundColor: ['#4CAF50', '#F44336']
-                        }]
-                    },
-                    options: {
-                        responsive: true
-                    }
-                });
-            }
+            dados.forEach((item) => {
+                corretos += +item.acertos;
+                incorretos += +item.erros;
+            });
+
+            const ctx1 = document.getElementById('myChart1').getContext('2d');
+            if (chart1) chart1.destroy();
+
+            chart1 = new Chart(ctx1, {
+                type: 'pie',
+                data: {
+                    labels: ['Acertos', 'Erros'],
+                    datasets: [{
+                        data: [corretos, incorretos],
+                        backgroundColor: ['#0891b2', '#1B4F72']
+                    }]
+                },
+                options: {
+                    responsive: true
+                }
+            });
         } catch (erro) {
             console.error('Erro ao buscar dados do usuário logado:', erro);
         }
@@ -117,35 +118,52 @@
         try {
             const resTotal = await fetch(`/dashboard/acertosGerais/${idQuiz}`);
             const dadosTotal = await resTotal.json();
+            const labels = dadosTotal.map(item => `Questão ${item.numQuestao}`);
+            const dataAcertos = dadosTotal.map(item => item.totalAcertos);
+            console.log("Dados totais:", dadosTotal);
 
-            const totalCorretos = dadosTotal.length;
+            const ctx2 = document.getElementById('myChart2').getContext('2d');
+            if (chart2) chart2.destroy();
 
-            const ctx2 = document.getElementById('myChart2');
-            if (ctx2) {
-                new Chart(ctx2, {
-                    type: 'bar',
-                    data: {
-                        labels: ['Total de Acertos'],
-                        datasets: [{
-                            label: 'Acertos no geral',
-                            data: [totalCorretos],
-                            backgroundColor: ['#2196F3']
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                                stepSize: 1
-                            }
+            chart2 = new Chart(ctx2, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Acertos no geral',
+                        data: dataAcertos,
+                        backgroundColor: '#1B4F72'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            stepSize: 1
                         }
                     }
-                });
-            }
+                }
+            });
         } catch (erro) {
             console.error('Erro ao buscar dados totais:', erro);
         }
-    };
+    }
+
+    window.onload = function () {
+        const idUsuario = sessionStorage.ID_USUARIO;
+        const selectQuiz = document.getElementById("selectQuiz");
+
+        if (!idUsuario) {
+            alert("Usuário não logado.");
+            return;
+        }
+
+        carregarGraficos(idUsuario, selectQuiz.value);
+
+        selectQuiz.addEventListener("change", () => {
+            carregarGraficos(idUsuario, selectQuiz.value);
+        });
+};
 
 </script>

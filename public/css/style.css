@@ -310,7 +310,7 @@ html
 {
     display: flex;
     justify-content: flex-start;
-    gap: 5%;
+    gap: 3%;
     margin-top: 2%;
 }
 
@@ -347,16 +347,21 @@ html
     color: rgba(208, 208, 208, 0.4);
 }
 
-.icons
-{
-    display: flex;
-    gap: 10px;
-}
-
-.rodape-links
-{
+.rodape-links {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.paragrafo-rod-item {
+    flex: 1;
+    text-align: center;
+}
+
+.icons {
+    display: flex;
+    gap: 15px;
 }
 
 /*Página de cadastro*/
@@ -782,12 +787,7 @@ html
     }
 }
 
-
-/*Shrinking for mobile*/
-
-@media (max-width: 768px) {
-    .waves {
-        height: 40px;
-        min-height: 40px;
-    }
+.a-rodape{
+    color: aliceblue;
+    opacity: 80%;
 }

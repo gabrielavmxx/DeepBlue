@@ -108,3 +108,23 @@ p
 {
     margin-bottom: 80px;
 }
+
+.pergunta.correta {
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 6px;
+}
+
+.pergunta.incorreta {
+  background-color: #F44336;
+  color: white;
+  border-radius: 6px;
+}
+
+ #meuContainer {
+    display: none; /* escondido */
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 5px;}

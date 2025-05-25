@@ -16,7 +16,7 @@ function salvarRespostas(idUsuario, numQuestao , idQuiz, correto, resultado)
         }else{
             instrucaoSql += 
             `
-            ("${resultado[i]}", null, ${numQuestao[i]} , ${idUsuario}, ${idQuiz})
+            ("${resultado[i]}", null, null , ${idUsuario}, ${idQuiz})
             `
         }
         

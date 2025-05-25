@@ -1,5 +1,14 @@
 var database = require("../../database/config")
 
+function totalQuestoes(idQuiz) {
+    const instrucaoSql = `
+        SELECT COUNT(DISTINCT numQuestao) AS total
+        FROM resultado_quiz
+        WHERE fkQuiz = ${idQuiz};
+    `;
+    return database.executar(instrucaoSql);
+}
+
 function acessarCorretos(idUsuario, idQuiz) {
     console.log("ACESSEI A DASHBOARD MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", idUsuario, idQuiz)
     var instrucaoSql = `
@@ -31,5 +40,6 @@ function acertosGerais(idQuiz) {
 
 module.exports = {
     acessarCorretos,
-    acertosGerais
+    acertosGerais,
+    totalQuestoes
 };

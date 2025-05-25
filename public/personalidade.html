@@ -30,24 +30,29 @@
         </div>
     </div> 
 
+    <div id="meuContainer">
+    <h2>meudeus!</h2>
+    <p>magbfoebaoufguiafb</p>
+  </div>
+
     <div class="rodape">
         <div class="sessao-rodape">
             <div class="titulo-nome">
                 <p class="titulo-rodape">DeepBlue</p>
-                <p class="paragrafo-rodape">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est laboriosam earum, cumque odit, nesciunt modi accusamus omnis voluptas minima incidunt ab tenetur rerum. Sunt iusto inventore voluptatibus, accusamus perferendis debitis?</p>
+                <a class="a-rodape" href="index.html#sessao-historia"><p class="paragrafo-rodape">Cultura</p></a>
+                <a class="a-rodape"  href="sobremim.html"><p class="paragrafo-rodape">História</p></a>
             </div>
-            <div>
-                <p class="titulo-rodape">Links</p>
-                <p class="paragrafo-rodape">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam, nostrum quas fugiat praesentium ratione ipsum. Nulla, iste praesentium accusamus voluptates velit sunt explicabo repellendus dolores expedita maiores ex eius. Deserunt.</p>
-            </div>
-
-            <div>
-                <p class="titulo-rodape">Contato</p>
-                <p class="paragrafo-rodape">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error odit tenetur delectus quos iste voluptate ut ipsum recusandae asperiores debitis quia incidunt architecto quod praesentium, tempore dolor commodi et doloribus?</p>
+            <div class="titulo-nome">
+                <p class="titulo-rodape">Sites Relacionados</p>
+                <a class="a-rodape" href="https://www.worldsurfleague.com/"><p class="paragrafo-rodape">WSL</p></a>
+                <a class="a-rodape"  href="https://www.waves.com.br/"><p class="paragrafo-rodape">Waves</p></a>
+                <a class="a-rodape"  href="https://ge.globo.com/surfe/"><p class="paragrafo-rodape">Surf ge</p></a>
             </div>
         </div>
         <div class="rodape-links">
-            <p class="paragrafo-rod">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+            <div class="paragrafo-rod-item">
+                <p class="paragrafo-rod">Desenvolvido por Gabriela Villegas Montero 1CCOA 2025</p>
+            </div>
             <div class="icons">
                 <a href="https://www.instagram.com/gabrielavmx/"><p class="icon"><i class="fa-brands fa-instagram icon fa-xl"></i></p></a>
                 <a href=""><p class="icon"><i class="fa-brands fa-linkedin icon fa-xl"></i></p></a>
@@ -139,6 +144,64 @@
             questao: 7
         }
     ]
+
+    const mapaPersonagemID = {
+    "João Frango": "A",
+    "Barbie Surfista": "B",
+    "Cadu Maverick": "C",
+    "Cody Maverick": "D",
+    "Lilo": "E",
+    "Stitch": "F",
+    "JJ Maybank": "G",
+    "Lani Aliikai": "H",
+    "Kiara Carrera": "I"
+    };
+
+    const pesos = {
+    questao1: {
+        a: {"Kiara Carrera": 60, "Cadu Maverick": 30},
+        b: {"Barbie Surfista": 80, "JJ Maybank": 60, "Lani Aliikai": 50},
+        c: {"Lilo": 80, "Stitch": 60, "Cody Maverick": 60},
+        d: {"João Frango": 80, "JJ Maybank": 60}
+    },
+    questao2: {
+        a: {"Kiara Carrera": 50, "Stitch": 40},
+        b: {"João Frango": 60, "Cadu Maverick": 50},
+        c: {"JJ Maybank": 70, "Barbie Surfista": 40},
+        d: {"Lilo": 60, "Cody Maverick": 60}
+    },
+    questao3: {
+        a: {"Barbie Surfista": 60, "Lani Aliikai": 40},
+        b: {"Stitch": 70, "JJ Maybank": 40},
+        c: {"Cody Maverick": 60, "Cadu Maverick": 40},
+        d: {"Lilo": 80, "João Frango": 40}
+    },
+    questao4: {
+        a: {"Cadu Maverick": 70, "Kiara Carrera": 40},
+        b: {"Stitch": 60, "João Frango": 50},
+        c: {"Cody Maverick": 60, "JJ Maybank": 40},
+        d: {"Lilo": 70, "Barbie Surfista": 50}
+    },
+    questao5: {
+        a: {"Lani Aliikai": 70, "Barbie Surfista": 50},
+        b: {"João Frango": 70, "Lilo": 50},
+        c: {"Cody Maverick": 80, "JJ Maybank": 50},
+        d: {"Stitch": 80, "Cadu Maverick": 60}
+    },
+    questao6: {
+        a: {"Barbie Surfista": 70, "Cadu Maverick": 60},
+        b: {"João Frango": 60, "Lilo": 50},
+        c: {"Cody Maverick": 80, "JJ Maybank": 60},
+        d: {"Stitch": 70, "Kiara Carrera": 40}
+    },
+    questao7: {
+        a: {"Cody Maverick": 80, "JJ Maybank": 50},
+        b: {"Cadu Maverick": 70, "Stitch": 50},
+        c: {"Barbie Surfista": 70, "Lani Aliikai": 60},
+        d: {"Kiara Carrera": 80, "João Frango": 50}
+    }
+}
+
     for(let i = 0; i < quiz.length; i++){
 
         if(!(i % 2 == 0)){
@@ -177,6 +240,48 @@
         }
     }
 
+function calcularPersonagem(respostas) {
+    const pontuacao = {};
+
+    for (let i = 0; i < respostas.length; i++) {
+        const resposta = respostas[i];
+        const numeroQuestao = i + 1;
+        const chaveQuestao = `questao${numeroQuestao}`;
+        const pesoOpcao = pesos[chaveQuestao]?.[resposta];
+
+        if (pesoOpcao) {
+            for (const personagem in pesoOpcao) {
+                pontuacao[personagem] = (pontuacao[personagem] || 0) + pesoOpcao[personagem];
+            }
+        }
+    }
+
+    let maiorPontuacao = -Infinity;
+    let personagensEmpatados = [];
+
+    for (const personagem in pontuacao) {
+        if (pontuacao[personagem] > maiorPontuacao) {
+            maiorPontuacao = pontuacao[personagem];
+            personagensEmpatados = [personagem];
+        } else if (pontuacao[personagem] === maiorPontuacao) {
+            personagensEmpatados.push(personagem);
+        }
+    }
+
+    // Se tiver mais de um personagem com a maior pontuação, sorteia um
+    if (personagensEmpatados.length > 1) {
+        const sorteadoIndex = Math.floor(Math.random() * personagensEmpatados.length);
+        return personagensEmpatados[sorteadoIndex];
+    } else {
+        return personagensEmpatados[0] || null;
+    }
+}
+
+function telaEscondida(){
+    const container = document.getElementById('meuContainer');
+    container.style.display = 'block';
+}
+
     const respostas = []
 
     for(let i = 0; i < quiz.length; i++){
@@ -188,11 +293,13 @@
     }
 
     function enviarDados(){
-        const numQuestao = []
+        const personagemFinal = calcularPersonagem(respostas);
+        const personagemID = mapaPersonagemID[personagemFinal];
 
-        for(let i = 0; i < respostas.length; i++){
-            numQuestao.push(quiz[i].questao)
-        }
+        console.log("Respostas:", respostas);
+        console.log("Personagem:", personagemFinal);
+        console.log("ID enviado:", personagemID);
+
 
         console.log(respostas)
         fetch("http://localhost:3333/quiz/salvarRespostas", {
@@ -204,9 +311,12 @@
             "idQuizServer": "1",
             "idUsuarioServer": sessionStorage.ID_USUARIO,
             "corretoServer": [],
-            "corretoServer": validacaoCorreto,
-            "resultadoServer": respostas
+            "corretoServer": [],
+            "numeroQuestaoServer": [],
+            "resultadoServer": personagemID
         }),
     })
+
+    telaEscondida()
     }
 </script>

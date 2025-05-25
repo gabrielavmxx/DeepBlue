@@ -11,6 +11,8 @@ router.get("/acertosGerais/:idQuiz", function (req, res) {
     dashboardController.listarAcertosGerais(req, res);
 });
 
-
+router.get("/totalQuestoes/:idQuiz", function (req, res) {
+    dashboardController.totalQuestoes(req, res);
+});
 
 module.exports = router;

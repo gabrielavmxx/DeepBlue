@@ -10,17 +10,6 @@
     justify-content: start;
 }
 
-.items-dashboard
-{
-    display: flex;
-    background-color: #1B4F72;  
-    flex-direction: column;
-    padding: 150px 25px;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 10%;
-}
-
 .items-dashboard:hover
 {
     display: flex;
@@ -55,4 +44,82 @@
 .p-hidden
 {
     color: #1B4F72; 
+}
+
+.items-dashboard {
+    display: flex;
+    background-color: #1B4F72;
+    flex-direction: column;
+    padding: 40px 15px; 
+    align-items: center;
+    justify-content: flex-start;
+    gap: 40px;
+    width: 60px; 
+    transition: width 0.3s ease;
+    overflow: hidden; 
+}
+
+.items-dashboard:hover {
+    width: 180px;
+    padding-left: 15px;
+    align-items: flex-start;
+}
+
+.icone {
+    color: aliceblue;
+    font-size: 24px;
+    min-width: 40px;
+}
+
+.items-dashboard a p {
+    color: aliceblue;
+    margin-left: 10px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.items-dashboard:hover a p {
+    opacity: 1;
+}
+
+.items-dashboard a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    text-decoration: none;
+}
+
+.items-dashboard a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.select-quiz
+{
+    width: 80%;
+    display: flex;
+    height: 10%;
+    align-items: center;
+    gap: 10px;
+    padding: 40px;
+}
+
+label{
+    font-family: "Inter", sans-serif;
+    font-size: 25px;
+}
+
+select{
+    border-style: none;
+    border-radius: 10px;
+    padding: 8px 15px;
+    font-size: 20px;
+}
+
+.grafico-label
+{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
