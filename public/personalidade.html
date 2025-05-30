@@ -30,10 +30,8 @@
         </div>
     </div> 
 
-    <div id="meuContainer">
-    <h2>meudeus!</h2>
-    <p>magbfoebaoufguiafb</p>
-  </div>
+    <div id="div_resultado">
+    </div>
 
     <div class="rodape">
         <div class="sessao-rodape">
@@ -149,7 +147,6 @@
     "João Frango": "A",
     "Barbie Surfista": "B",
     "Cadu Maverick": "C",
-    "Cody Maverick": "D",
     "Lilo": "E",
     "Stitch": "F",
     "JJ Maybank": "G",
@@ -161,41 +158,41 @@
     questao1: {
         a: {"Kiara Carrera": 60, "Cadu Maverick": 30},
         b: {"Barbie Surfista": 80, "JJ Maybank": 60, "Lani Aliikai": 50},
-        c: {"Lilo": 80, "Stitch": 60, "Cody Maverick": 60},
+        c: {"Lilo": 80, "Stitch": 60},
         d: {"João Frango": 80, "JJ Maybank": 60}
     },
     questao2: {
         a: {"Kiara Carrera": 50, "Stitch": 40},
         b: {"João Frango": 60, "Cadu Maverick": 50},
         c: {"JJ Maybank": 70, "Barbie Surfista": 40},
-        d: {"Lilo": 60, "Cody Maverick": 60}
+        d: {"Lilo": 60}
     },
     questao3: {
         a: {"Barbie Surfista": 60, "Lani Aliikai": 40},
         b: {"Stitch": 70, "JJ Maybank": 40},
-        c: {"Cody Maverick": 60, "Cadu Maverick": 40},
+        c: {"Cadu Maverick": 40},
         d: {"Lilo": 80, "João Frango": 40}
     },
     questao4: {
         a: {"Cadu Maverick": 70, "Kiara Carrera": 40},
         b: {"Stitch": 60, "João Frango": 50},
-        c: {"Cody Maverick": 60, "JJ Maybank": 40},
+        c: {"JJ Maybank": 40},
         d: {"Lilo": 70, "Barbie Surfista": 50}
     },
     questao5: {
         a: {"Lani Aliikai": 70, "Barbie Surfista": 50},
         b: {"João Frango": 70, "Lilo": 50},
-        c: {"Cody Maverick": 80, "JJ Maybank": 50},
+        c: {"JJ Maybank": 50},
         d: {"Stitch": 80, "Cadu Maverick": 60}
     },
     questao6: {
         a: {"Barbie Surfista": 70, "Cadu Maverick": 60},
         b: {"João Frango": 60, "Lilo": 50},
-        c: {"Cody Maverick": 80, "JJ Maybank": 60},
+        c: {"JJ Maybank": 60},
         d: {"Stitch": 70, "Kiara Carrera": 40}
     },
     questao7: {
-        a: {"Cody Maverick": 80, "JJ Maybank": 50},
+        a: {"JJ Maybank": 50},
         b: {"Cadu Maverick": 70, "Stitch": 50},
         c: {"Barbie Surfista": 70, "Lani Aliikai": 60},
         d: {"Kiara Carrera": 80, "João Frango": 50}
@@ -277,9 +274,85 @@ function calcularPersonagem(respostas) {
     }
 }
 
+//biblioteca js para confeti
+
+var jq = document.createElement('script');
+jq.src = "https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js";
+document.getElementsByTagName('head')[0].appendChild(jq);
+function frame() {
+  //confeti do lado esquerdo
+  confetti({
+    particleCount: 135,
+    angle: 60,
+    spread: 200,
+    origin: {
+      x: 0 }
+  }
+          );
+  // confeti lado direito
+  confetti({
+    particleCount: 135,
+    angle: 120,
+    spread: 55,
+    origin: {
+      x: 1 }
+  }
+          );
+}
+var f =  document.getElementsByClassName('btn-enviar-quiz')[0]
+f.onclick = function(){
+    setTimeout(function(){
+            frame();
+            telaEscondida()
+    }, 800); 
+} 
+
+
+
 function telaEscondida(){
-    const container = document.getElementById('meuContainer');
+    const personagemFinal = calcularPersonagem(respostas);
+    const container = document.getElementById('div_resultado');
     container.style.display = 'block';
+    var imagem = null
+    var mensagem = null
+
+    if (personagemFinal == 'João Frango'){
+        imagem = "<img src='./img/joaoFrango.jpeg' />"
+        mensagem = "Você é aquela pessoa que pode parecer tímida à primeira vista, mas tem uma coragem surpreendente guardada dentro de si. Sempre pronto(a) para ajudar os outros, você é leal, carismático(a) e sabe se adaptar nas situações mais malucas. Seu jeitinho atrapalhado só te deixa ainda mais autêntico(a)!"
+    }else if(personagemFinal == 'Barbie Surfista'){
+        imagem = "<img src='./img/barbieSurfista.jpg' />"
+        mensagem = "Você é confiante, determinada e tem um espírito leve que inspira todo mundo ao seu redor. Não tem medo de se jogar em novas aventuras e vive com estilo. Você equilibra bem o lado competitivo com o amor pela natureza e sempre espalha boas vibrações por onde passa!"
+    }else if(personagemFinal == 'Cadu Maverick'){
+        imagem = "<img src='./img/cadu.jpeg' />"
+        mensagem = "Você tem alma de aventureiro(a)! Sempre buscando o seu lugar no mundo, você não tem medo de correr riscos e seguir seu coração. Autêntico(a), resiliente e sonhador(a), você valoriza a amizade verdadeira e é movido(a) pela paixão em tudo que faz."
+    }else if(personagemFinal == 'Lilo'){
+        imagem = "<img src='./img/liloestich.jpg' />"
+        mensagem = "Você é sensível, criativa e tem um coração enorme. Mesmo quando o mundo parece complicado, você se mantém fiel a quem você é. Valoriza muito sua família (ohana!) e sempre enxerga o melhor nas pessoas — mesmo nas mais estranhas. 💙"
+    }else if(personagemFinal == 'Stitch'){
+        imagem = "<img src='./img/liloestich.jpg' />"
+        mensagem = "Você tem uma energia intensa e um espírito livre que nem sempre segue as regras. Mas por trás do seu jeito bagunceiro, existe um coração enorme e um desejo sincero de pertencer. Leal, engraçado e único(a), você prova que até os mais caóticos podem amar e ser amados."
+    }else if(personagemFinal == 'JJ Maybank'){
+        imagem = "<img src='./img/jjmaybank.jpeg' />"
+        mensagem = "Você é ousado(a), impulsivo(a) e vive no limite — mas com um coração de ouro. Costuma agir antes de pensar, mas está sempre lá pelos seus amigos, não importa o que aconteça. Você é aquele(a) que traz a adrenalina pro grupo e defende com unhas e dentes quem ama."
+    }else if(personagemFinal == 'Lani Aliikai'){
+        imagem = "<img src='./img/lanialiikai.jpeg' />"
+        mensagem = "Você é equilibrado(a), maduro(a) e tem um espírito acolhedor. Sabe dar bons conselhos, curte a vibe tranquila da praia e valoriza relacionamentos sinceros. Pode parecer reservado(a) às vezes, mas sua calma e firmeza são sua força. Você é o ponto de paz no meio do caos."
+    }else if(personagemFinal == 'Kiara Carrera'){
+        imagem = "<img src='./img/kiaraCarrera.jpeg' />"
+        mensagem = "Você é determinada, cheia de atitude e tem um senso de justiça afiado. Gosta de fazer o que acredita ser certo, mesmo que isso signifique ir contra a maré. Independente, forte e com o coração enorme, você luta por aquilo que acredita e está sempre pronta pra agir."
+    }
+
+    div_resultado.innerHTML += `
+    <div class="container-invisivel">
+        <div>
+            <p class="paragrafo-branco">Você é o(a): ${personagemFinal}</p>
+        </div>
+        <div class="cont-result">
+            <div class="imagem-resultado-quiz">${imagem}</div>
+            <p class="mensagem-paragrafo">${mensagem}</p>
+        </div>
+    </div>
+    `
 }
 
     const respostas = []
@@ -316,7 +389,5 @@ function telaEscondida(){
             "resultadoServer": personagemID
         }),
     })
-
-    telaEscondida()
     }
 </script>

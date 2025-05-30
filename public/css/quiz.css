@@ -121,10 +121,47 @@ p
   border-radius: 6px;
 }
 
- #meuContainer {
-    display: none; /* escondido */
+ #div_resultado {
+    display: none;
     margin-top: 20px;
     padding: 20px;
-    background-color: #eee;
-    border: 1px solid #ccc;
-    border-radius: 5px;}
+    background-color: #1B4F72;
+    border-radius: 5px;
+}
+
+.container-invisivel
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.cont-result
+{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.imagem-resultado-quiz
+{
+    max-width: 300px;
+    max-height: 300px;
+    display: flex;
+    align-self: center;
+    justify-self: center;
+}
+
+img
+{
+    width: 300px;
+    height: 300px;
+}
+
+.paragrafo-branco{
+    color: aliceblue;
+}
+
+.mensagem-paragrafo{
+    color: aliceblue;
+    width: 300px;
+}
