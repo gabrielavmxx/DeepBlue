@@ -133,19 +133,24 @@ p
 {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .cont-result
 {
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 5%;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .imagem-resultado-quiz
 {
-    max-width: 300px;
-    max-height: 300px;
+    max-width: 400px;
+    max-height: 400px;
     display: flex;
     align-self: center;
     justify-self: center;
@@ -153,12 +158,14 @@ p
 
 img
 {
-    width: 300px;
-    height: 300px;
+    width: 400px;
+    height: 400px;
 }
 
 .paragrafo-branco{
     color: aliceblue;
+    font-size: 30px;
+    font-weight: bold;
 }
 
 .mensagem-paragrafo{
