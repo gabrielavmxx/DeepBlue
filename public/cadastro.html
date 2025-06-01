@@ -10,20 +10,6 @@
     <title>Cadastro</title>
 </head>
 <body class="cadastro-body">
-    <!-- <div class="navbar">
-        <div class="nav-items">
-            <div class="logo"></div>
-            <p class="titulo-nav"><a href="index.html">Deep<span>Blue</span></a></p>
-        </div>
-        <div class="nav-items">
-            <p>Cultura</p>
-            <p>Estatisticas</p>
-            <p>Quiz</p>
-            <button class="btn btn-entrar">Entrar</button>
-            <button class="btn btn-cadastro">Cadastro</button>
-        </div>
-    </div> -->
-
     <div class="cadastro">
         <div class="sessao-cadastro">
           <div class="item-cad">
@@ -105,16 +91,11 @@
     });
 
 function cadastrar() {
-  // aguardar();
-
-  //Recupere o valor da nova input pelo nome do id
-  // Agora vá para o método fetch logo abaixo
   var nomeVar = nome_input.value;
   var emailVar = email_input.value;
   var senhaVar = senha_input.value;
   var confirmacaoSenhaVar = confirmacao_senha_input.value;
 
-  // Verificando se há algum campo em branco
   if (
     nomeVar == "" ||
     emailVar == "" ||
@@ -128,7 +109,20 @@ function cadastrar() {
     return false;
   }
 
-  // Enviando o valor da nova input
+  if(!emailVar.includes('@') || !emailVar.includes('.com')){
+    return(alert('A formatação de email está incorreta'))
+  }
+
+  if(senhaVar != confirmacaoSenhaVar){
+    return(alert('As senhas são diferentes!'))
+  }
+
+  if(senhaVar.length < 6){
+    return(alert('A senha deve ter no minímo 6 caracteres'))
+  }
+
+  
+
   fetch("/usuarios/cadastrar", {
     method: "POST",
     headers: {

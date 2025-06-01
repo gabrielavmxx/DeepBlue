@@ -15,4 +15,16 @@ router.get("/totalQuestoes/:idQuiz", function (req, res) {
     dashboardController.totalQuestoes(req, res);
 });
 
+router.get("/maisAcertados/:idQuiz", function (req, res) {
+    dashboardController.maisAcertada(req, res);
+});
+
+router.get("/menosAcertados/:idQuiz", function (req, res) {
+    dashboardController.menosAcertada(req, res);
+});
+
+router.get("/mediaAcertos/:idUsuario/:idQuiz", function (req, res) {
+    dashboardController.taxaQuestoes(req, res);
+});
+
 module.exports = router;

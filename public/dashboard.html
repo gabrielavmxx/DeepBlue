@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,16 +11,25 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Dashboard</title>
 </head>
+
 <body>
     <div class="navbar">
         <div class="nav-items">
-            <a href="index.html"><div class="logo"></div></a>
+            <a href="index.html">
+                <div class="logo"></div>
+            </a>
             <p class="titulo-nav"><a href="index.html">Deep<span>Blue</span></a></p>
         </div>
         <div class="nav-items2">
-            <a href="index.html#sessao-historia"><p>Cultura</p></a>
-            <a href="sobremim.html"><p>Sobre mim</p></a>
-            <a href="quiz.html"><p>Quiz</p></a>
+            <a href="index.html#sessao-historia">
+                <p>Cultura</p>
+            </a>
+            <a href="sobremim.html">
+                <p>Sobre mim</p>
+            </a>
+            <a href="quiz.html">
+                <p>Quiz</p>
+            </a>
             <div id="icon_escondido">
                 <a href="dashboard.html" class="icon-nav"><i class="fa-solid fa-circle-user icone-escondido"></i></a>
             </div>
@@ -32,27 +42,47 @@
 
     <div class="conteudo-dashboard">
         <div class="items-dashboard">
-            <a href="index.html"><i class="fa-solid fa-house icone"></i><p class="p-hideen">Home</p></a>
-            <a href=""><i class="fa-solid fa-chart-pie icone"></i><p class="p-hideen">Estatisticas</p></a>
-            <a href="quiz.html"><i class="fa-solid fa-question icone"></i><p class="p-hideen">Quiz</p></a>
-            <a href="login.html" onclick="sairConta()"><i class="fa-solid fa-right-from-bracket icone"></i> <p class="p-hideen">Sair</p></a>
+            <a href="index.html"><i class="fa-solid fa-house icone"></i>
+                <p class="p-hideen">Home</p>
+            </a>
+            <a href=""><i class="fa-solid fa-chart-pie icone"></i>
+                <p class="p-hideen">Estatisticas</p>
+            </a>
+            <a href="quiz.html"><i class="fa-solid fa-question icone"></i>
+                <p class="p-hideen">Quiz</p>
+            </a>
+            <a href="login.html" onclick="sairConta()"><i class="fa-solid fa-right-from-bracket icone"></i>
+                <p class="p-hideen">Sair</p>
+            </a>
         </div>
 
         <div class="grafico-label">
             <div id="div_apresentacao">
-                
+
             </div>
             <div class="select-quiz">
                 <label for="selectQuiz">Escolha o Quiz</label>
                 <select id="selectQuiz">
-                    <option value="2">Cultura</option>
                     <option value="3">Surfistas</option>
+                    <option value="2">Cultura</option>
                 </select>
             </div>
             <div class="graficos-dashboard">
-                
-                <canvas class="grafico g1" id="myChart1"></canvas>
-                <canvas class="grafico g2" id="myChart2"></canvas>
+
+                <div class="graf graf-1">
+                    <div class="indicadores">
+                        <div class="kpi k1" id="kpi3"></div>
+                    </div>
+                    <canvas class="grafico g1" id="myChart1"></canvas>
+                </div>
+
+                <div class="graf">
+                    <div class="indicadores">
+                        <div class="kpi" id="kpi1"></div>
+                        <div class="kpi" id="kpi2"></div>
+                    </div>
+                    <canvas class="grafico g2" id="myChart2"></canvas>
+                </div>
             </div>
         </div>
     </div>
@@ -61,14 +91,24 @@
         <div class="sessao-rodape">
             <div class="titulo-nome">
                 <p class="titulo-rodape">DeepBlue</p>
-                <a class="a-rodape" href="index.html#sessao-historia"><p class="paragrafo-rodape">Cultura</p></a>
-                <a class="a-rodape"  href="sobremim.html"><p class="paragrafo-rodape">História</p></a>
+                <a class="a-rodape" href="index.html#sessao-historia">
+                    <p class="paragrafo-rodape">Cultura</p>
+                </a>
+                <a class="a-rodape" href="sobremim.html">
+                    <p class="paragrafo-rodape">História</p>
+                </a>
             </div>
             <div class="titulo-nome">
                 <p class="titulo-rodape">Sites Relacionados</p>
-                <a class="a-rodape" href="https://www.worldsurfleague.com/"><p class="paragrafo-rodape">WSL</p></a>
-                <a class="a-rodape"  href="https://www.waves.com.br/"><p class="paragrafo-rodape">Waves</p></a>
-                <a class="a-rodape"  href="https://ge.globo.com/surfe/"><p class="paragrafo-rodape">Surf ge</p></a>
+                <a class="a-rodape" href="https://www.worldsurfleague.com/">
+                    <p class="paragrafo-rodape">WSL</p>
+                </a>
+                <a class="a-rodape" href="https://www.waves.com.br/">
+                    <p class="paragrafo-rodape">Waves</p>
+                </a>
+                <a class="a-rodape" href="https://ge.globo.com/surfe/">
+                    <p class="paragrafo-rodape">Surf ge</p>
+                </a>
             </div>
         </div>
         <div class="rodape-links">
@@ -76,29 +116,77 @@
                 <p class="paragrafo-rod">Desenvolvido por Gabriela Villegas Montero 1CCOA 2025</p>
             </div>
             <div class="icons">
-                <a href="https://www.instagram.com/gabrielavmx/"><p class="icon"><i class="fa-brands fa-instagram icon fa-xl"></i></p></a>
-                <a href=""><p class="icon"><i class="fa-brands fa-linkedin icon fa-xl"></i></p></a>
-                <a href="https://github.com/gabrielavmxx"><p class="icon"><i class="fa-brands fa-github icon fa-xl"></i></p></a>
+                <a href="https://www.instagram.com/gabrielavmx/">
+                    <p class="icon"><i class="fa-brands fa-instagram icon fa-xl"></i></p>
+                </a>
+                <a href="">
+                    <p class="icon"><i class="fa-brands fa-linkedin icon fa-xl"></i></p>
+                </a>
+                <a href="https://github.com/gabrielavmxx">
+                    <p class="icon"><i class="fa-brands fa-github icon fa-xl"></i></p>
+                </a>
             </div>
         </div>
     </div>
 </body>
+
 </html>
 
 <script>
     let chart1 = null;
     let chart2 = null;
 
-    function VerificarConta(){
+    async function dadosKPI(idUsuario, idQuiz) {
+
+        const taxaAcertos = document.getElementById('kpi3')
+        const maisAcertos = document.getElementById('kpi1')
+        const menosAcertos = document.getElementById('kpi2')
+
+        try {
+            const res = await fetch(`/dashboard/mediaAcertos/${idUsuario}/${idQuiz}`);
+            const dados = await res.json();
+
+            if (!dados || dados.taxa_acertos === null || dados.taxa_acertos === undefined) {
+                kpi3.innerHTML = `
+                <p class="texto-kpi">Taxa de acertos: 0%</p>`;
+            } else {
+                kpi3.innerHTML = `
+                <p class="texto-kpi">Taxa de acertos: ${dados.taxa_acertos}%</p>`;
+            }
+
+        } catch (erro) {
+            console.error('Erro ao buscar dados do usuário logado:', erro);
+        }
+
+        try {
+            const res = await fetch(`/dashboard/menosAcertados/${idQuiz}`);
+            const dados = await res.json();
+
+            kpi2.innerHTML = `<p class="texto-kpi">Questão com menor número de acertos: ${dados.numQuestao}</p>`;
+        } catch (erro) {
+            console.error('Erro ao buscar dados do usuário logado:', erro);
+        }
+
+        try {
+            const res = await fetch(`/dashboard/maisAcertados/${idQuiz}`);
+            const dados = await res.json();
+            kpi1.innerHTML = `<p class="texto-kpi">Questão com maior número de acertos: ${dados.numQuestao}</p>`;
+        } catch (erro) {
+            console.error("Erro ao buscar dados:", erro);
+        }
+
+    }
+
+    function VerificarConta() {
         const divBotoes = document.getElementById('botoes_nav')
         const iconEscondido = document.getElementById('icon_escondido')
         console.log(iconEscondido)
 
-        if(sessionStorage.NOME_USUARIO == null){
+        if (sessionStorage.NOME_USUARIO == null) {
             divBotoes.style.display = 'flex';
             iconEscondido.style.display = 'none'
             console.log('to aqui')
-        }else{
+        } else {
             divBotoes.style.display = 'none';
             iconEscondido.style.display = 'block'
             console.log('funcionou!!!!!')
@@ -106,11 +194,11 @@
     }
     VerificarConta()
 
-    function sairConta(){
+    function sairConta() {
         sessionStorage.clear()
     }
 
-    function apresentacao(){
+    function apresentacao() {
         const nomeUsuario = sessionStorage.NOME_USUARIO
         div_apresentacao.innerHTML = `
             <p class="p-apresentacao">Seja bem vindo(a) ${nomeUsuario}</p>
@@ -156,7 +244,6 @@
             const dadosTotal = await resTotal.json();
             const labels = dadosTotal.map(item => `Questão ${item.numQuestao}`);
             const dataAcertos = dadosTotal.map(item => item.totalAcertos);
-            console.log("Dados totais:", dadosTotal);
 
             const ctx2 = document.getElementById('myChart2').getContext('2d');
             if (chart2) chart2.destroy();
@@ -196,10 +283,12 @@
         }
 
         carregarGraficos(idUsuario, selectQuiz.value);
+        dadosKPI(idUsuario, selectQuiz.value)
 
         selectQuiz.addEventListener("change", () => {
             carregarGraficos(idUsuario, selectQuiz.value);
+            dadosKPI(idUsuario, selectQuiz.value)
         });
-};
+    };
 
 </script>

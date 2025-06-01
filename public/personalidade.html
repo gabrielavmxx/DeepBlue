@@ -262,17 +262,28 @@
     }
 
 function calcularPersonagem(respostas) {
-    const pontuacao = {};
+    const pontuacao = {}
 
     for (let i = 0; i < respostas.length; i++) {
-        const resposta = respostas[i];
-        const numeroQuestao = i + 1;
-        const chaveQuestao = `questao${numeroQuestao}`;
-        const pesoOpcao = pesos[chaveQuestao]?.[resposta];
+        const resposta = respostas[i]
+        const numeroQuestao = i + 1
+        const chaveQuestao = `questao${numeroQuestao}`
+        //o ? serve para evitar erro se a chaveQuestao estiver nula
+        //inves de retornar um erro ele retorna undefined
+        const pesoOpcao = pesos[chaveQuestao]?.[resposta]
 
+        //Se pesoOpcao for true
         if (pesoOpcao) {
+
+            // let chaves = Object.keys(pesoOpcao);
+            // for (let i = 0; i < chaves.length; i++) {
+            // let personagem = chaves[i];
+            // let valor = pesoOpcao[personagem];
+            // }
+            
             for (const personagem in pesoOpcao) {
-                pontuacao[personagem] = (pontuacao[personagem] || 0) + pesoOpcao[personagem];
+                //caso exista uma pontuação use ela *****ou**** se não houver use 0 e depois pegue o peso e some
+                pontuacao[personagem] = (pontuacao[personagem] || 0) + pesoOpcao[personagem]
             }
         }
     }

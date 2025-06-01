@@ -37,9 +37,37 @@ function acertosGerais(idQuiz) {
     return database.executar(instrucaoSql);
 }
 
+function questaoMaisAcertada(idQuiz){
+    const instrucaoSql = `
+        select numQuestao from resultado_quiz where correto = 1 and fkQuiz = ${idQuiz} group by numQuestao order by count(*) desc limit 1;
+    `;
+    return database.executar(instrucaoSql);
+}
+
+function questaoMenosAcertada(idQuiz){
+    const instrucaoSql = `
+       select numQuestao from resultado_quiz where correto = 1 and fkQuiz = ${idQuiz} group by numQuestao order by count(*) limit 1;
+    `;
+    return database.executar(instrucaoSql);
+}
+
+function mediaQuestoes(idQuiz, idUsuario){
+    const instrucaoSql = `
+    SELECT
+    COUNT(CASE WHEN rq.correto = 1 THEN 1 END) * 100.0 / COUNT(*) AS taxa_acertos
+    FROM resultado_quiz rq
+    JOIN usuario u ON rq.fkUsuario = u.idUsuario
+    JOIN quiz q ON rq.fkQuiz = q.idQuiz
+    WHERE rq.fkUsuario = ${idUsuario} AND rq.fkQuiz = ${idQuiz}
+    `;
+    return database.executar(instrucaoSql);
+}
 
 module.exports = {
     acessarCorretos,
     acertosGerais,
-    totalQuestoes
+    totalQuestoes,
+    questaoMaisAcertada,
+    mediaQuestoes,
+    questaoMenosAcertada
 };

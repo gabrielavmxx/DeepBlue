@@ -45,8 +45,62 @@ function totalQuestoes(req, res) {
         });
 }
 
+function taxaQuestoes(req, res) {
+    var idQuiz = req.params.idQuiz;
+    var idUsuario = req.params.idUsuario;
+
+    dashboardModel.mediaQuestoes(idQuiz, idUsuario)
+        .then(resultado => {
+            if (resultado.length > 0) {
+                res.json({ taxa_acertos: resultado[0].taxa_acertos });
+            } else {
+                res.json({ taxa_acertos: 0 });
+            }
+        })
+        .catch(erro => {
+            console.error(erro);
+            res.status(500).json(erro);
+        });
+}
+
+function maisAcertada(req, res) {
+    var idQuiz = Number(req.params.idQuiz);
+    dashboardModel.questaoMaisAcertada(idQuiz)
+        .then(resultado => {
+            if (resultado.length > 0) {
+                res.json({ numQuestao : resultado[0].numQuestao  });
+            } else {
+                res.json({ numQuestao : 0 });
+            }
+        })
+        .catch(erro => {
+            console.error(erro);
+            res.status(500).json(erro);
+        });
+}
+
+function menosAcertada(req, res) {
+    var idQuiz = req.params.idQuiz;
+
+    dashboardModel.questaoMenosAcertada(idQuiz)
+        .then(resultado => {
+            if (resultado.length > 0) {
+                res.json({ numQuestao : resultado[0].numQuestao  });
+            } else {
+                res.json({ numQuestao : 0 });
+            }
+        })
+        .catch(erro => {
+            console.error(erro);
+            res.status(500).json(erro);
+        });
+}
+
 module.exports = {
     selectCerto,
     listarAcertosGerais,
-    totalQuestoes
+    totalQuestoes,
+    menosAcertada,
+    maisAcertada,
+    taxaQuestoes
 };
