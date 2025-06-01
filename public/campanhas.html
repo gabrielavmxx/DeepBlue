@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/6921956092.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="img/logo.png" type="image/ico">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Campanhas</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="nav-items">
+            <a href="index.html">
+                <div class="logo"></div>
+            </a>
+            <p class="titulo-nav"><a href="index.html">Deep<span>Blue</span></a></p>
+        </div>
+        <div class="nav-items2">
+            <a href="index.html#sessao-historia">
+                <p>Cultura</p>
+            </a>
+            <a href="sobremim.html">
+                <p>Sobre mim</p>
+            </a>
+            <a href="quiz.html">
+                <p>Quiz</p>
+            </a>
+            <a href="campanhas.html">
+                <p>Campanhas</p>
+            </a>
+            <div id="icon_escondido">
+                <a href="dashboard.html" class="icon-nav"><i class="fa-solid fa-circle-user icone-escondido"></i></a>
+            </div>
+            <div class="botoes-nav" id="botoes_nav">
+                <a href="login.html"><button class="btn btn-entrar">Entrar</button></a>
+                <a href="cadastro.html"><button class="btn btn-cadastro">Cadastro</button></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-campanhas">
+        <p class="titulo-container-campanha">Conheça sobre campanhas que ajudam a preservar o oceano e os animais
+            que vivem nele</p>
+    </div>
+    <div class="items-campanha" id="items_campanha">
+
+    </div>
+
+
+    <div class="rodape">
+        <div class="sessao-rodape">
+            <div class="titulo-nome">
+                <p class="titulo-rodape">DeepBlue</p>
+                <a class="a-rodape" href="index.html#sessao-historia">
+                    <p class="paragrafo-rodape">Cultura</p>
+                </a>
+                <a class="a-rodape" href="sobremim.html">
+                    <p class="paragrafo-rodape">História</p>
+                </a>
+            </div>
+            <div class="titulo-nome">
+                <p class="titulo-rodape">Sites Relacionados</p>
+                <a class="a-rodape" href="https://www.worldsurfleague.com/">
+                    <p class="paragrafo-rodape">WSL</p>
+                </a>
+                <a class="a-rodape" href="https://www.waves.com.br/">
+                    <p class="paragrafo-rodape">Waves</p>
+                </a>
+                <a class="a-rodape" href="https://ge.globo.com/surfe/">
+                    <p class="paragrafo-rodape">Surf ge</p>
+                </a>
+            </div>
+        </div>
+        <div class="rodape-links">
+            <div class="paragrafo-rod-item">
+                <p class="paragrafo-rod">Desenvolvido por Gabriela Villegas Montero 1CCOA 2025</p>
+            </div>
+            <div class="icons">
+                <a href="https://www.instagram.com/gabrielavmx/">
+                    <p class="icon"><i class="fa-brands fa-instagram icon fa-xl"></i></p>
+                </a>
+                <a href="">
+                    <p class="icon"><i class="fa-brands fa-linkedin icon fa-xl"></i></p>
+                </a>
+                <a href="https://github.com/gabrielavmxx">
+                    <p class="icon"><i class="fa-brands fa-github icon fa-xl"></i></p>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    function VerificarConta() {
+        const divBotoes = document.getElementById('botoes_nav')
+        const iconEscondido = document.getElementById('icon_escondido')
+        console.log(iconEscondido)
+
+        if (sessionStorage.NOME_USUARIO == null) {
+            divBotoes.style.display = 'flex';
+            iconEscondido.style.display = 'none'
+            console.log('to aqui')
+        } else {
+            divBotoes.style.display = 'none';
+            iconEscondido.style.display = 'block'
+            console.log('funcionou!!!!!')
+        }
+    }
+    VerificarConta()
+
+    const campanhas = [
+        {
+            titulo: 'Ecosurf',
+            descricao: 'O Instituto Ecosurf é uma organização brasileira que reúne especialistas ambientais e demais pessoas comprometidas com o propósito de criar um mundo melhor, viabilizando soluções e conhecimentos que assegurem a saúde do oceano e proteção das zonas costeiras e marinhas. A entidade atua com o foco na educação e informação ambiental, voluntariado e mobilização, engajamento social, inovação e políticas públicas (advocacy). As Ações Ecosurf monitoram, pesquisam a poluição das praias e realizam sua limpeza, defendem os recursos hídricos, apoiam a criação de Áreas de Surf Protegidas, parques e outros espaços de conservação da natureza, promovem o enfrentamento dos efeitos das mudanças climáticas, contribuem nos espaços e instâncias de tomada de decisão e fomentam a cultura de paz.',
+            imagem: "<img src='./img/ecosurf.png' class='img'/>",
+            url: 'https://ecosurf.org.br/'
+        },
+        {
+            titulo: 'Wave to Save',
+            descricao: 'A campanha Wave to Save é uma campanha dirigida à comunidade que pratica surf, bodyboard, kitesurf e outros desportos similares e com forte ligação ao meio marinho. Mais especificamente, esta campanha pretende contribuir para a melhoria da logística de resgate de animais marinhos arrojados vivos (aves marinhas, tartarugas marinhas, cetáceos e focas), de forma a assegurar que existe uma resposta pronta e célere perante alertas de animais marinhos em stress e a necessitarem ajuda.',
+            imagem: "<img src='./img/wave_to_save.png' class='img' />",
+            url: 'https://cram.org.pt/parceiros-pelo-mar/wave-save/'
+        },
+        {
+            titulo: 'Oceano Vivo',
+            descricao: 'A campanha “Oceano Vivo” foi uma iniciativa do Fórum Nacional de Proteção e Defesa Animal em parceria com a Sea Shepherd Brasil (SSB) e Sociedade Vegetariana Brasileira (SVB) para um movimento global em prol do Dia Mundial pelo Fim da Pesca e Aquacultura (World Day for the End of Fishing and Fish Farming – WoDEF).',
+            imagem: "<img src='./img/oceanovivo.png' class='img' />",
+            url: 'https://forumanimal.org/site/oceanovivo/'
+        },
+        {
+            titulo: 'Sea Shepherd Brasil',
+            descricao: 'A Sea Shepherd é uma organização internacional sem fins lucrativos de conservação da vida marinha. Fundada em 1977, nossa missão é defender, conservar e proteger a vida na água e ecossistemas marinhos. Usamos táticas inovadoras e não-violentas de ação direta para investigar, documentar, estudar e agir quando necessário para expor e confrontar atividades predatórias e ilegais nos oceanos. Ao proteger a biodiversidade de nossos delicados ecossistemas marinhos, a Sea Shepherd busca garantir a sobrevivência do oceano para futuras gerações.',
+            imagem: "<img src='./img/seaShe.png' class='img' />",
+            url: 'https://seashepherd.org.br/'
+        },
+        {
+            titulo: 'Reservas de Surf',
+            descricao: 'O Programa Brasileiro de Reservas de Surf tem como missão reconhecer, valorizar e conservar ondas icônicas e seus ecossistemas de surfe ao longo do litoral brasileiro. Aliando o esporte à conservação e considerando o potencial do surfe como vetor para a sensibilização e desenvolvimento sustentável da costa brasileira. O Programa é um marco na história do surfe e da conservação da biodiversidade no Brasil. Encontra-se em fase de implantação sob a coordenação do Instituto APRENDER Ecologia em parceria com a Conservação Internacional – Brasil. Foi elaborado com base no Programa Mundial de Reservas de Surf, criado pela Save the Waves Coalition, e nas Reservas Nacionais de Surf da Austrália.',
+            imagem: "<img src='./img/reservas-surf.png' class='img' />",
+            url: 'https://reservasdesurf.org.br/'
+        }
+    ]
+
+    for (let i = 0; i < campanhas.length; i++) {
+        if (!(i % 2 == 0)) {
+            items_campanha.innerHTML += `
+            <div class='tudo-campanha'>
+                <div class="conteudo-campanha">
+                    <p class="titulo-campanha">${campanhas[i].titulo}</p>
+                    <p class="descricao-campanha">${campanhas[i].descricao}</p>
+                    <a href='${campanhas[i].url}' class='a-campanha'><button class="campanha-botao">Saiba mais</button></a>
+                </div>
+                <div class="conteudo-imagem">
+                    <div class="imagem-campanha">${campanhas[i].imagem}</div>
+                </div>
+            </div>`
+
+        } else {
+            items_campanha.innerHTML += `
+            <div class='tudo-campanha bg-1'>
+                <div class="conteudo-campanha">
+                    <p class="titulo-campanha t1">${campanhas[i].titulo}</p>
+                    <p class="descricao-campanha t1">${campanhas[i].descricao}</p>
+                    <a href='${campanhas[i].url}' class='a-campanha'><button class="campanha-botao b1">Saiba mais</button></a>
+                </div>
+                <div class="conteudo-imagem">
+                    <div class="imagem-campanha">${campanhas[i].imagem}</div>
+                </div>
+            </div>`
+        }
+    }
+</script>
