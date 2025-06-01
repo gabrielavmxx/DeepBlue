@@ -39,6 +39,9 @@
         </div>
 
         <div class="grafico-label">
+            <div id="div_apresentacao">
+                
+            </div>
             <div class="select-quiz">
                 <label for="selectQuiz">Escolha o Quiz</label>
                 <select id="selectQuiz">
@@ -106,6 +109,14 @@
     function sairConta(){
         sessionStorage.clear()
     }
+
+    function apresentacao(){
+        const nomeUsuario = sessionStorage.NOME_USUARIO
+        div_apresentacao.innerHTML = `
+            <p class="p-apresentacao">Seja bem vindo(a) ${nomeUsuario}</p>
+        `
+    }
+    apresentacao()
 
     async function carregarGraficos(idUsuario, idQuiz) {
         try {
