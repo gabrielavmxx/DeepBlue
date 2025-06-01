@@ -20,18 +20,22 @@
             <a href="index.html#sessao-historia"><p>Cultura</p></a>
             <a href="sobremim.html"><p>Sobre mim</p></a>
             <a href="quiz.html"><p>Quiz</p></a>
-            <a href="login.html"><button class="btn btn-entrar">Entrar</button></a>
-            <a href="cadastro.html"><button class="btn btn-cadastro">Cadastro</button></a>
+            <div id="icon_escondido">
+                <a href="dashboard.html" class="icon-nav"><i class="fa-solid fa-circle-user icone-escondido"></i></a>
+            </div>
+            <div class="botoes-nav" id="botoes_nav">
+                <a href="login.html"><button class="btn btn-entrar">Entrar</button></a>
+                <a href="cadastro.html"><button class="btn btn-cadastro">Cadastro</button></a>
+            </div>
         </div>
     </div>
 
     <div class="conteudo-dashboard">
         <div class="items-dashboard">
-            <a href="index.html"><i class="fa-solid fa-house icone"></i> <p class="p-hideen">Home</p> </a>
-            <a href=""><i class="fa-solid fa-chart-pie icone"></i> <p class="p-hideen">Estatisticas</p> </a>
-            <a href="quiz.html"><i class="fa-solid fa-question icone"></i> <p class="p-hideen">Quiz</p> </a>
-            <a href=""><i class="fa-solid fa-user icone"></i> <p class="p-hideen">Perfil</p> </a>
-            <a href=""><i class="fa-solid fa-file icone"></i> <p class="p-hideen">Meus resultados</p> </a>
+            <a href="index.html"><i class="fa-solid fa-house icone"></i><p class="p-hideen">Home</p></a>
+            <a href=""><i class="fa-solid fa-chart-pie icone"></i><p class="p-hideen">Estatisticas</p></a>
+            <a href="quiz.html"><i class="fa-solid fa-question icone"></i><p class="p-hideen">Quiz</p></a>
+            <a href="login.html" onclick="sairConta()"><i class="fa-solid fa-right-from-bracket icone"></i> <p class="p-hideen">Sair</p></a>
         </div>
 
         <div class="grafico-label">
@@ -81,6 +85,27 @@
 <script>
     let chart1 = null;
     let chart2 = null;
+
+    function VerificarConta(){
+        const divBotoes = document.getElementById('botoes_nav')
+        const iconEscondido = document.getElementById('icon_escondido')
+        console.log(iconEscondido)
+
+        if(sessionStorage.NOME_USUARIO == null){
+            divBotoes.style.display = 'flex';
+            iconEscondido.style.display = 'none'
+            console.log('to aqui')
+        }else{
+            divBotoes.style.display = 'none';
+            iconEscondido.style.display = 'block'
+            console.log('funcionou!!!!!')
+        }
+    }
+    VerificarConta()
+
+    function sairConta(){
+        sessionStorage.clear()
+    }
 
     async function carregarGraficos(idUsuario, idQuiz) {
         try {

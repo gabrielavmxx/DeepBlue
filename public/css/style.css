@@ -29,6 +29,24 @@ html
     scroll-behavior: smooth; /*isso aq faz o href que coloquei em alguns botoes funcioem de forma suave*/
 }
 
+.botoes-nav
+{
+    display: flex;
+    gap: 25px;
+}
+
+.icone-escondido
+{
+    color: #05162b;
+    font-size: 35px;
+    padding: 15px;
+}
+
+.icone-escondido:hover{
+    transform: scale(1.2);
+    transition: all 0.2s ease-in-out;
+}
+
 .navbar
 {
     display: flex;

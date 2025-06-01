@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/6921956092.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="img/logo.png" type="image/ico">
 
@@ -18,8 +19,13 @@
             <a href="index.html#sessao-historia"><p>Cultura</p></a>
             <a href="sobremim.html"><p>Sobre mim</p></a>
             <a href="quiz.html"><p>Quiz</p></a>
-            <a href="login.html"><button class="btn btn-entrar">Entrar</button></a>
-            <a href="cadastro.html"><button class="btn btn-cadastro">Cadastro</button></a>
+            <div id="icon_escondido">
+                <a href="dashboard.html" class="icon-nav"><i class="fa-solid fa-circle-user icone-escondido"></i></a>
+            </div>
+            <div class="botoes-nav" id="botoes_nav">
+                <a href="login.html"><button class="btn btn-entrar">Entrar</button></a>
+                <a href="cadastro.html"><button class="btn btn-cadastro">Cadastro</button></a>
+            </div>
         </div>
     </div>
 
@@ -83,4 +89,21 @@
             window.location.href = quizzes+".html";
         }
     }
+
+    function VerificarConta(){
+        const divBotoes = document.getElementById('botoes_nav')
+        const iconEscondido = document.getElementById('icon_escondido')
+        console.log(iconEscondido)
+
+        if(sessionStorage.NOME_USUARIO == null){
+            divBotoes.style.display = 'flex';
+            iconEscondido.style.display = 'none'
+            console.log('to aqui')
+        }else{
+            divBotoes.style.display = 'none';
+            iconEscondido.style.display = 'block'
+            console.log('funcionou!!!!!')
+        }
+    }
+    VerificarConta()
 </script>
