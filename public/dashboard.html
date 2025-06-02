@@ -15,21 +15,14 @@
 <body>
     <div class="navbar">
         <div class="nav-items">
-            <a href="index.html">
-                <div class="logo"></div>
-            </a>
+            <a href="index.html"><div class="logo"></div></a>
             <p class="titulo-nav"><a href="index.html">Deep<span>Blue</span></a></p>
         </div>
         <div class="nav-items2">
-            <a href="index.html#sessao-historia">
-                <p>Cultura</p>
-            </a>
-            <a href="sobremim.html">
-                <p>Sobre mim</p>
-            </a>
-            <a href="quiz.html">
-                <p>Quiz</p>
-            </a>
+            <a href="index.html#sessao-historia"><p>Cultura</p></a>
+            <a href="sobremim.html"><p>Sobre mim</p></a>
+            <a href="quiz.html"><p>Quiz</p></a>
+            <a href="campanhas.html"><p>Campanhas</p></a>
             <div id="icon_escondido">
                 <a href="dashboard.html" class="icon-nav"><i class="fa-solid fa-circle-user icone-escondido"></i></a>
             </div>
@@ -145,13 +138,14 @@
         try {
             const res = await fetch(`/dashboard/mediaAcertos/${idUsuario}/${idQuiz}`);
             const dados = await res.json();
+            const taxa = Number(dados.taxa_acertos).toFixed(0)
 
             if (!dados || dados.taxa_acertos === null || dados.taxa_acertos === undefined) {
                 kpi3.innerHTML = `
                 <p class="texto-kpi">Taxa de acertos: 0%</p>`;
             } else {
                 kpi3.innerHTML = `
-                <p class="texto-kpi">Taxa de acertos: ${dados.taxa_acertos}%</p>`;
+                <p class="texto-kpi">Taxa de acertos: ${taxa}%</p>`;
             }
 
         } catch (erro) {

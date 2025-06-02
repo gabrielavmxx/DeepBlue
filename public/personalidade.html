@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="icon" href="img/logo.png" type="image/ico">
     <title>Quiz de personalidade</title>
 </head>
+
 <body>
     <div class="navbar">
         <div class="nav-items">
@@ -19,6 +21,7 @@
             <a href="index.html#sessao-historia"><p>Cultura</p></a>
             <a href="sobremim.html"><p>Sobre mim</p></a>
             <a href="quiz.html"><p>Quiz</p></a>
+            <a href="campanhas.html"><p>Campanhas</p></a>
             <div id="icon_escondido">
                 <a href="dashboard.html" class="icon-nav"><i class="fa-solid fa-circle-user icone-escondido"></i></a>
             </div>
@@ -34,7 +37,7 @@
         <div class="botao-div">
             <button id="btn-enviar-dados" class="btn-enviar-quiz" onclick="enviarDados()">Finalizar</button>
         </div>
-    </div> 
+    </div>
 
     <div id="div_resultado">
     </div>
@@ -43,14 +46,24 @@
         <div class="sessao-rodape">
             <div class="titulo-nome">
                 <p class="titulo-rodape">DeepBlue</p>
-                <a class="a-rodape" href="index.html#sessao-historia"><p class="paragrafo-rodape">Cultura</p></a>
-                <a class="a-rodape"  href="sobremim.html"><p class="paragrafo-rodape">História</p></a>
+                <a class="a-rodape" href="index.html#sessao-historia">
+                    <p class="paragrafo-rodape">Cultura</p>
+                </a>
+                <a class="a-rodape" href="sobremim.html">
+                    <p class="paragrafo-rodape">História</p>
+                </a>
             </div>
             <div class="titulo-nome">
                 <p class="titulo-rodape">Sites Relacionados</p>
-                <a class="a-rodape" href="https://www.worldsurfleague.com/"><p class="paragrafo-rodape">WSL</p></a>
-                <a class="a-rodape"  href="https://www.waves.com.br/"><p class="paragrafo-rodape">Waves</p></a>
-                <a class="a-rodape"  href="https://ge.globo.com/surfe/"><p class="paragrafo-rodape">Surf ge</p></a>
+                <a class="a-rodape" href="https://www.worldsurfleague.com/">
+                    <p class="paragrafo-rodape">WSL</p>
+                </a>
+                <a class="a-rodape" href="https://www.waves.com.br/">
+                    <p class="paragrafo-rodape">Waves</p>
+                </a>
+                <a class="a-rodape" href="https://ge.globo.com/surfe/">
+                    <p class="paragrafo-rodape">Surf ge</p>
+                </a>
             </div>
         </div>
         <div class="rodape-links">
@@ -58,27 +71,34 @@
                 <p class="paragrafo-rod">Desenvolvido por Gabriela Villegas Montero 1CCOA 2025</p>
             </div>
             <div class="icons">
-                <a href="https://www.instagram.com/gabrielavmx/"><p class="icon"><i class="fa-brands fa-instagram icon fa-xl"></i></p></a>
-                <a href=""><p class="icon"><i class="fa-brands fa-linkedin icon fa-xl"></i></p></a>
-                <a href="https://github.com/gabrielavmxx"><p class="icon"><i class="fa-brands fa-github icon fa-xl"></i></p></a>
+                <a href="https://www.instagram.com/gabrielavmx/">
+                    <p class="icon"><i class="fa-brands fa-instagram icon fa-xl"></i></p>
+                </a>
+                <a href="">
+                    <p class="icon"><i class="fa-brands fa-linkedin icon fa-xl"></i></p>
+                </a>
+                <a href="https://github.com/gabrielavmxx">
+                    <p class="icon"><i class="fa-brands fa-github icon fa-xl"></i></p>
+                </a>
             </div>
         </div>
     </div>
 </body>
+
 </html>
 
 <script>
 
-    function VerificarConta(){
+    function VerificarConta() {
         const divBotoes = document.getElementById('botoes_nav')
         const iconEscondido = document.getElementById('icon_escondido')
         console.log(iconEscondido)
 
-        if(sessionStorage.NOME_USUARIO == null){
+        if (sessionStorage.NOME_USUARIO == null) {
             divBotoes.style.display = 'flex';
             iconEscondido.style.display = 'none'
             console.log('to aqui')
-        }else{
+        } else {
             divBotoes.style.display = 'none';
             iconEscondido.style.display = 'block'
             console.log('funcionou!!!!!')
@@ -86,298 +106,300 @@
     }
     VerificarConta()
 
-    const quiz = 
-    [
-        {
-            pergunta: "Com base na sua personalidade, você se considera..",
-            opcoes: 
-            [
-            "Confiante",
-            "Esforçado(a)",
-            "Curioso(a)",
-            "Engraçado(a)"
-            ],
-            questao: 1
-        },
-        {
-            pergunta: "Escolha o defeito que você mais se identifica..",
-            opcoes: 
-            [
-            "Teimoso(a)",
-            "Preguiçoso(a)",
-            "Irritado(a)",
-            "Procrastinador(a)"
-            ],
-            questao: 2
-        },
-        {
-            pergunta: "Qual dessas opções você prefere?",
-            opcoes: 
-            [
-            "Queijo coalho no espeto",
-            "Anéis de cebola frito",
-            "Milho verde",
-            "Frutas"
-            ],
-            questao: 3
-        },
-        {
-            pergunta: "Escolha o melhor tipo de onda..",
-            opcoes: 
-            [
-            "Tubos",
-            "Fechadeira",
-            "Cavada",
-            "Espuma"
-            ],
-            questao: 4
-        },
-        {
-            pergunta: "Você costuma se arriscar?",
-            opcoes: 
-            [
-            "Não muito, só o básico",
-            "Prefiro não me arriscar nadinha",
-            "Sempre tento ter o máximo de proveito nas ondas",
-            "Sempre😎"
-            ],
-            questao: 5
-        },
-        {
-            pergunta: "Que tipo de prancha você prefere?",
-            opcoes: 
-            [
-            "LongBoard",
-            "Stand Up paddle",
-            "ShortBoard",
-            "Body"
-            ],
-            questao: 6
-        },
-        {
-            pergunta: "Qual desses surfistas é o seu favorito?",
-            opcoes: 
-            [
-            "Gabriel Medina",
-            "Italo Ferreira",
-            "Tatiana Weston-Webb",
-            "Yago Dora"
-            ],
-            questao: 7
-        }
-    ]
+    const quiz =
+        [
+            {
+                pergunta: "Com base na sua personalidade, você se considera..",
+                opcoes:
+                    [
+                        "Confiante",
+                        "Esforçado(a)",
+                        "Curioso(a)",
+                        "Engraçado(a)"
+                    ],
+                questao: 1
+            },
+            {
+                pergunta: "Escolha o defeito que você mais se identifica..",
+                opcoes:
+                    [
+                        "Teimoso(a)",
+                        "Preguiçoso(a)",
+                        "Irritado(a)",
+                        "Procrastinador(a)"
+                    ],
+                questao: 2
+            },
+            {
+                pergunta: "Qual dessas opções você prefere?",
+                opcoes:
+                    [
+                        "Queijo coalho no espeto",
+                        "Anéis de cebola frito",
+                        "Milho verde",
+                        "Frutas"
+                    ],
+                questao: 3
+            },
+            {
+                pergunta: "Escolha o melhor tipo de onda..",
+                opcoes:
+                    [
+                        "Tubos",
+                        "Fechadeira",
+                        "Cavada",
+                        "Espuma"
+                    ],
+                questao: 4
+            },
+            {
+                pergunta: "Você costuma se arriscar?",
+                opcoes:
+                    [
+                        "Não muito, só o básico",
+                        "Prefiro não me arriscar nadinha",
+                        "Sempre tento ter o máximo de proveito nas ondas",
+                        "Sempre😎"
+                    ],
+                questao: 5
+            },
+            {
+                pergunta: "Que tipo de prancha você prefere?",
+                opcoes:
+                    [
+                        "LongBoard",
+                        "Stand Up paddle",
+                        "ShortBoard",
+                        "Body"
+                    ],
+                questao: 6
+            },
+            {
+                pergunta: "Qual desses surfistas é o seu favorito?",
+                opcoes:
+                    [
+                        "Gabriel Medina",
+                        "Italo Ferreira",
+                        "Tatiana Weston-Webb",
+                        "Yago Dora"
+                    ],
+                questao: 7
+            }
+        ]
 
     const mapaPersonagemID = {
-    "João Frango": "A",
-    "Barbie Surfista": "B",
-    "Cadu Maverick": "C",
-    "Lilo": "E",
-    "Stitch": "F",
-    "JJ Maybank": "G",
-    "Lani Aliikai": "H",
-    "Kiara Carrera": "I"
+        "João Frango": "A",
+        "Barbie Surfista": "B",
+        "Cadu Maverick": "C",
+        "Lilo": "E",
+        "Stitch": "F",
+        "JJ Maybank": "G",
+        "Lani Aliikai": "H",
+        "Kiara Carrera": "I"
     };
 
     const pesos = {
-    questao1: {
-        a: {"Kiara Carrera": 60, "Cadu Maverick": 30},
-        b: {"Barbie Surfista": 80, "JJ Maybank": 60, "Lani Aliikai": 50},
-        c: {"Lilo": 80, "Stitch": 60},
-        d: {"João Frango": 80, "JJ Maybank": 60}
-    },
-    questao2: {
-        a: {"Kiara Carrera": 50, "Stitch": 40},
-        b: {"João Frango": 60, "Cadu Maverick": 50},
-        c: {"JJ Maybank": 70, "Barbie Surfista": 40},
-        d: {"Lilo": 60}
-    },
-    questao3: {
-        a: {"Barbie Surfista": 60, "Lani Aliikai": 40},
-        b: {"Stitch": 70, "JJ Maybank": 40},
-        c: {"Cadu Maverick": 40},
-        d: {"Lilo": 80, "João Frango": 40}
-    },
-    questao4: {
-        a: {"Cadu Maverick": 70, "Kiara Carrera": 40},
-        b: {"Stitch": 60, "João Frango": 50},
-        c: {"JJ Maybank": 40},
-        d: {"Lilo": 70, "Barbie Surfista": 50}
-    },
-    questao5: {
-        a: {"Lani Aliikai": 70, "Barbie Surfista": 50},
-        b: {"João Frango": 70, "Lilo": 50},
-        c: {"JJ Maybank": 50},
-        d: {"Stitch": 80, "Cadu Maverick": 60}
-    },
-    questao6: {
-        a: {"Barbie Surfista": 70, "Cadu Maverick": 60},
-        b: {"João Frango": 60, "Lilo": 50},
-        c: {"JJ Maybank": 60},
-        d: {"Stitch": 70, "Kiara Carrera": 40}
-    },
-    questao7: {
-        a: {"JJ Maybank": 50},
-        b: {"Cadu Maverick": 70, "Stitch": 50},
-        c: {"Barbie Surfista": 70, "Lani Aliikai": 60},
-        d: {"Kiara Carrera": 80, "João Frango": 50}
+        questao1: {
+            a: { "Kiara Carrera": 60, "Cadu Maverick": 30 },
+            b: { "Barbie Surfista": 80, "JJ Maybank": 60, "Lani Aliikai": 50 },
+            c: { "Lilo": 80, "Stitch": 60 },
+            d: { "João Frango": 80, "JJ Maybank": 60 }
+        },
+        questao2: {
+            a: { "Kiara Carrera": 50, "Stitch": 40 },
+            b: { "João Frango": 60, "Cadu Maverick": 50 },
+            c: { "JJ Maybank": 70, "Barbie Surfista": 40 },
+            d: { "Lilo": 60 }
+        },
+        questao3: {
+            a: { "Barbie Surfista": 60, "Lani Aliikai": 40 },
+            b: { "Stitch": 70, "JJ Maybank": 40 },
+            c: { "Cadu Maverick": 40 },
+            d: { "Lilo": 80, "João Frango": 40 }
+        },
+        questao4: {
+            a: { "Cadu Maverick": 70, "Kiara Carrera": 40 },
+            b: { "Stitch": 60, "João Frango": 50 },
+            c: { "JJ Maybank": 40 },
+            d: { "Lilo": 70, "Barbie Surfista": 50 }
+        },
+        questao5: {
+            a: { "Lani Aliikai": 70, "Barbie Surfista": 50 },
+            b: { "João Frango": 70, "Lilo": 50 },
+            c: { "JJ Maybank": 50 },
+            d: { "Stitch": 80, "Cadu Maverick": 60 }
+        },
+        questao6: {
+            a: { "Barbie Surfista": 70, "Cadu Maverick": 60 },
+            b: { "João Frango": 60, "Lilo": 50 },
+            c: { "JJ Maybank": 60 },
+            d: { "Stitch": 70, "Kiara Carrera": 40 }
+        },
+        questao7: {
+            a: { "JJ Maybank": 50 },
+            b: { "Cadu Maverick": 70, "Stitch": 50 },
+            c: { "Barbie Surfista": 70, "Lani Aliikai": 60 },
+            d: { "Kiara Carrera": 80, "João Frango": 50 }
+        }
     }
-}
 
-    for(let i = 0; i < quiz.length; i++){
+    for (let i = 0; i < quiz.length; i++) {
 
-        if(!(i % 2 == 0)){
+        if (!(i % 2 == 0)) {
             conteudo_quiz.innerHTML += `
-            <div class="background-cor" id="${i+1}">
+            <div class="background-cor" id="${i + 1}">
                 <div class="parte-cima">
-                <div class="bloco-numero bloco-1"><p>${i+1}</p></div>
+                <div class="bloco-numero bloco-1"><p>${i + 1}</p></div>
                 <p class="perg-top">${quiz[i].pergunta}</p>
                 </div>
                 <div class="blocos-quiz">
-                    <a href="#${i+2}" onclick="salvarDados('a', ${i})"><p class="pergunta p1">A)   ${quiz[i].opcoes[0]}</p></a>
-                    <a href="#${i+2}" onclick="salvarDados('b', ${i})"><p class="pergunta p1">B)   ${quiz[i].opcoes[1]}</p></a>
+                    <a href="#${i + 2}" onclick="salvarDados('a', ${i})"><p class="pergunta p1">A)   ${quiz[i].opcoes[0]}</p></a>
+                    <a href="#${i + 2}" onclick="salvarDados('b', ${i})"><p class="pergunta p1">B)   ${quiz[i].opcoes[1]}</p></a>
                 </div>
                 <div class="blocos-quiz bloco-quiz-baixo">
-                    <a href="#${i+2}" onclick="salvarDados('c', ${i})"><p class="pergunta p1">C)   ${quiz[i].opcoes[2]}</p></a>
-                    <a href="#${i+2}" onclick="salvarDados('d', ${i})"><p class="pergunta p1">D)   ${quiz[i].opcoes[3]}</p></a>
+                    <a href="#${i + 2}" onclick="salvarDados('c', ${i})"><p class="pergunta p1">C)   ${quiz[i].opcoes[2]}</p></a>
+                    <a href="#${i + 2}" onclick="salvarDados('d', ${i})"><p class="pergunta p1">D)   ${quiz[i].opcoes[3]}</p></a>
                 </div>
             </div>`
 
-        }else{
-        conteudo_quiz.innerHTML += `
-        <div id="${i+1}"> 
+        } else {
+            conteudo_quiz.innerHTML += `
+        <div id="${i + 1}"> 
             <div class="parte-cima">
-                <div class="bloco-numero"><p>${i+1}</p></div>
+                <div class="bloco-numero"><p>${i + 1}</p></div>
                 <p>${quiz[i].pergunta}</p>
             </div>
             <div class="blocos-quiz">
-                <a href="#${i+2}" onclick="salvarDados('a', ${i})"><p class="pergunta">A)   ${quiz[i].opcoes[0]}</p></a>
-                <a href="#${i+2}" onclick="salvarDados('b', ${i})"><p class="pergunta">B)   ${quiz[i].opcoes[1]}</p></a>
+                <a href="#${i + 2}" onclick="salvarDados('a', ${i})"><p class="pergunta">A)   ${quiz[i].opcoes[0]}</p></a>
+                <a href="#${i + 2}" onclick="salvarDados('b', ${i})"><p class="pergunta">B)   ${quiz[i].opcoes[1]}</p></a>
             </div>
             <div class="blocos-quiz bloco-quiz-baixo">
-                <a href="#${i+2}" onclick="salvarDados('c', ${i})"><p class="pergunta">C)   ${quiz[i].opcoes[2]}</p></a>
-                <a href="#${i+2}" onclick="salvarDados('d', ${i})"><p class="pergunta">D)   ${quiz[i].opcoes[3]}</p></a>
+                <a href="#${i + 2}" onclick="salvarDados('c', ${i})"><p class="pergunta">C)   ${quiz[i].opcoes[2]}</p></a>
+                <a href="#${i + 2}" onclick="salvarDados('d', ${i})"><p class="pergunta">D)   ${quiz[i].opcoes[3]}</p></a>
             </div>
         </div>`
         }
     }
 
-function calcularPersonagem(respostas) {
-    const pontuacao = {}
+    function calcularPersonagem(respostas) {
+        const pontuacao = {}
 
-    for (let i = 0; i < respostas.length; i++) {
-        const resposta = respostas[i]
-        const numeroQuestao = i + 1
-        const chaveQuestao = `questao${numeroQuestao}`
-        //o ? serve para evitar erro se a chaveQuestao estiver nula
-        //inves de retornar um erro ele retorna undefined
-        const pesoOpcao = pesos[chaveQuestao]?.[resposta]
+        for (let i = 0; i < respostas.length; i++) {
+            const resposta = respostas[i]
+            const numeroQuestao = i + 1
+            const chaveQuestao = `questao${numeroQuestao}`
+            //o ? serve para evitar erro se a chaveQuestao estiver nula
+            //inves de retornar um erro ele retorna undefined
+            const pesoOpcao = pesos[chaveQuestao]?.[resposta]
 
-        //Se pesoOpcao for true
-        if (pesoOpcao) {
+            //Se pesoOpcao for true
+            if (pesoOpcao) {
 
-            // let chaves = Object.keys(pesoOpcao);
-            // for (let i = 0; i < chaves.length; i++) {
-            // let personagem = chaves[i];
-            // let valor = pesoOpcao[personagem];
-            // }
-            
-            for (const personagem in pesoOpcao) {
-                //caso exista uma pontuação use ela *****ou**** se não houver use 0 e depois pegue o peso e some
-                pontuacao[personagem] = (pontuacao[personagem] || 0) + pesoOpcao[personagem]
+                // let chaves = Object.keys(pesoOpcao);
+                // for (let i = 0; i < chaves.length; i++) {
+                // let personagem = chaves[i];
+                // let valor = pesoOpcao[personagem];
+                // }
+
+                for (const personagem in pesoOpcao) {
+                    //caso exista uma pontuação use ela *****ou**** se não houver use 0 e depois pegue o peso e some
+                    pontuacao[personagem] = (pontuacao[personagem] || 0) + pesoOpcao[personagem]
+                }
             }
         }
-    }
 
-    let maiorPontuacao = -Infinity;
-    let personagensEmpatados = [];
+        let maiorPontuacao = -Infinity;
+        let personagensEmpatados = [];
 
-    for (const personagem in pontuacao) {
-        if (pontuacao[personagem] > maiorPontuacao) {
-            maiorPontuacao = pontuacao[personagem];
-            personagensEmpatados = [personagem];
-        } else if (pontuacao[personagem] === maiorPontuacao) {
-            personagensEmpatados.push(personagem);
+        for (const personagem in pontuacao) {
+            if (pontuacao[personagem] > maiorPontuacao) {
+                maiorPontuacao = pontuacao[personagem];
+                personagensEmpatados = [personagem];
+            } else if (pontuacao[personagem] === maiorPontuacao) {
+                personagensEmpatados.push(personagem);
+            }
+        }
+
+        // Se tiver mais de um personagem com a maior pontuação, sorteia um
+        if (personagensEmpatados.length > 1) {
+            const sorteadoIndex = Math.floor(Math.random() * personagensEmpatados.length);
+            return personagensEmpatados[sorteadoIndex];
+        } else {
+            return personagensEmpatados[0] || null;
         }
     }
 
-    // Se tiver mais de um personagem com a maior pontuação, sorteia um
-    if (personagensEmpatados.length > 1) {
-        const sorteadoIndex = Math.floor(Math.random() * personagensEmpatados.length);
-        return personagensEmpatados[sorteadoIndex];
-    } else {
-        return personagensEmpatados[0] || null;
+    //biblioteca js para confeti
+
+    var jq = document.createElement('script');
+    jq.src = "https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js";
+    document.getElementsByTagName('head')[0].appendChild(jq);
+    function frame() {
+        //confeti do lado esquerdo
+        confetti({
+            particleCount: 135,
+            angle: 60,
+            spread: 200,
+            origin: {
+                x: 0
+            }
+        }
+        );
+        // confeti lado direito
+        confetti({
+            particleCount: 135,
+            angle: 120,
+            spread: 55,
+            origin: {
+                x: 1
+            }
+        }
+        );
     }
-}
-
-//biblioteca js para confeti
-
-var jq = document.createElement('script');
-jq.src = "https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js";
-document.getElementsByTagName('head')[0].appendChild(jq);
-function frame() {
-  //confeti do lado esquerdo
-  confetti({
-    particleCount: 135,
-    angle: 60,
-    spread: 200,
-    origin: {
-      x: 0 }
-  }
-          );
-  // confeti lado direito
-  confetti({
-    particleCount: 135,
-    angle: 120,
-    spread: 55,
-    origin: {
-      x: 1 }
-  }
-          );
-}
-var f =  document.getElementsByClassName('btn-enviar-quiz')[0]
-f.onclick = function(){
-    setTimeout(function(){
+    var f = document.getElementsByClassName('btn-enviar-quiz')[0]
+    f.onclick = function () {
+        setTimeout(function () {
             frame();
             telaEscondida()
-    }, 800); 
-} 
-
-
-
-function telaEscondida(){
-    const personagemFinal = calcularPersonagem(respostas);
-    const container = document.getElementById('div_resultado');
-    container.style.display = 'block';
-    var imagem = null
-    var mensagem = null
-
-    if (personagemFinal == 'João Frango'){
-        imagem = "<img src='./img/joaoFrango.jpeg' />"
-        mensagem = "Você é aquela pessoa que pode parecer tímida à primeira vista, mas tem uma coragem surpreendente guardada dentro de si. Sempre pronto(a) para ajudar os outros, você é leal, carismático(a) e sabe se adaptar nas situações mais malucas. Seu jeitinho atrapalhado só te deixa ainda mais autêntico(a)!"
-    }else if(personagemFinal == 'Barbie Surfista'){
-        imagem = "<img src='./img/barbieSurfista.jpg' />"
-        mensagem = "Você é confiante, determinada e tem um espírito leve que inspira todo mundo ao seu redor. Não tem medo de se jogar em novas aventuras e vive com estilo. Você equilibra bem o lado competitivo com o amor pela natureza e sempre espalha boas vibrações por onde passa!"
-    }else if(personagemFinal == 'Cadu Maverick'){
-        imagem = "<img src='./img/cadu.jpeg' />"
-        mensagem = "Você tem alma de aventureiro(a)! Sempre buscando o seu lugar no mundo, você não tem medo de correr riscos e seguir seu coração. Autêntico(a), resiliente e sonhador(a), você valoriza a amizade verdadeira e é movido(a) pela paixão em tudo que faz."
-    }else if(personagemFinal == 'Lilo'){
-        imagem = "<img src='./img/liloestich.jpg' />"
-        mensagem = "Você é sensível, criativa e tem um coração enorme. Mesmo quando o mundo parece complicado, você se mantém fiel a quem você é. Valoriza muito sua família (ohana!) e sempre enxerga o melhor nas pessoas — mesmo nas mais estranhas. 💙"
-    }else if(personagemFinal == 'Stitch'){
-        imagem = "<img src='./img/liloestich.jpg' />"
-        mensagem = "Você tem uma energia intensa e um espírito livre que nem sempre segue as regras. Mas por trás do seu jeito bagunceiro, existe um coração enorme e um desejo sincero de pertencer. Leal, engraçado e único(a), você prova que até os mais caóticos podem amar e ser amados."
-    }else if(personagemFinal == 'JJ Maybank'){
-        imagem = "<img src='./img/jjmaybank.jpeg' />"
-        mensagem = "Você é ousado(a), impulsivo(a) e vive no limite — mas com um coração de ouro. Costuma agir antes de pensar, mas está sempre lá pelos seus amigos, não importa o que aconteça. Você é aquele(a) que traz a adrenalina pro grupo e defende com unhas e dentes quem ama."
-    }else if(personagemFinal == 'Lani Aliikai'){
-        imagem = "<img src='./img/lanialiikai.jpeg' />"
-        mensagem = "Você é equilibrado(a), maduro(a) e tem um espírito acolhedor. Sabe dar bons conselhos, curte a vibe tranquila da praia e valoriza relacionamentos sinceros. Pode parecer reservado(a) às vezes, mas sua calma e firmeza são sua força. Você é o ponto de paz no meio do caos."
-    }else if(personagemFinal == 'Kiara Carrera'){
-        imagem = "<img src='./img/kiaraCarrera.jpeg' />"
-        mensagem = "Você é determinada, cheia de atitude e tem um senso de justiça afiado. Gosta de fazer o que acredita ser certo, mesmo que isso signifique ir contra a maré. Independente, forte e com o coração enorme, você luta por aquilo que acredita e está sempre pronta pra agir."
+        }, 800);
     }
 
-    div_resultado.innerHTML += `
+
+
+    function telaEscondida() {
+        const personagemFinal = calcularPersonagem(respostas);
+        const container = document.getElementById('div_resultado');
+        container.style.display = 'block';
+        var imagem = null
+        var mensagem = null
+
+        if (personagemFinal == 'João Frango') {
+            imagem = "<img src='./img/joaoFrango.jpeg' />"
+            mensagem = "Você é aquela pessoa que pode parecer tímida à primeira vista, mas tem uma coragem surpreendente guardada dentro de si. Sempre pronto(a) para ajudar os outros, você é leal, carismático(a) e sabe se adaptar nas situações mais malucas. Seu jeitinho atrapalhado só te deixa ainda mais autêntico(a)!"
+        } else if (personagemFinal == 'Barbie Surfista') {
+            imagem = "<img src='./img/barbieSurfista.jpg' />"
+            mensagem = "Você é confiante, determinada e tem um espírito leve que inspira todo mundo ao seu redor. Não tem medo de se jogar em novas aventuras e vive com estilo. Você equilibra bem o lado competitivo com o amor pela natureza e sempre espalha boas vibrações por onde passa!"
+        } else if (personagemFinal == 'Cadu Maverick') {
+            imagem = "<img src='./img/cadu.jpeg' />"
+            mensagem = "Você tem alma de aventureiro(a)! Sempre buscando o seu lugar no mundo, você não tem medo de correr riscos e seguir seu coração. Autêntico(a), resiliente e sonhador(a), você valoriza a amizade verdadeira e é movido(a) pela paixão em tudo que faz."
+        } else if (personagemFinal == 'Lilo') {
+            imagem = "<img src='./img/liloestich.jpg' />"
+            mensagem = "Você é sensível, criativa e tem um coração enorme. Mesmo quando o mundo parece complicado, você se mantém fiel a quem você é. Valoriza muito sua família (ohana!) e sempre enxerga o melhor nas pessoas — mesmo nas mais estranhas. 💙"
+        } else if (personagemFinal == 'Stitch') {
+            imagem = "<img src='./img/liloestich.jpg' />"
+            mensagem = "Você tem uma energia intensa e um espírito livre que nem sempre segue as regras. Mas por trás do seu jeito bagunceiro, existe um coração enorme e um desejo sincero de pertencer. Leal, engraçado e único(a), você prova que até os mais caóticos podem amar e ser amados."
+        } else if (personagemFinal == 'JJ Maybank') {
+            imagem = "<img src='./img/jjmaybank.jpeg' />"
+            mensagem = "Você é ousado(a), impulsivo(a) e vive no limite — mas com um coração de ouro. Costuma agir antes de pensar, mas está sempre lá pelos seus amigos, não importa o que aconteça. Você é aquele(a) que traz a adrenalina pro grupo e defende com unhas e dentes quem ama."
+        } else if (personagemFinal == 'Lani Aliikai') {
+            imagem = "<img src='./img/lanialiikai.jpeg' />"
+            mensagem = "Você é equilibrado(a), maduro(a) e tem um espírito acolhedor. Sabe dar bons conselhos, curte a vibe tranquila da praia e valoriza relacionamentos sinceros. Pode parecer reservado(a) às vezes, mas sua calma e firmeza são sua força. Você é o ponto de paz no meio do caos."
+        } else if (personagemFinal == 'Kiara Carrera') {
+            imagem = "<img src='./img/kiaraCarrera.jpeg' />"
+            mensagem = "Você é determinada, cheia de atitude e tem um senso de justiça afiado. Gosta de fazer o que acredita ser certo, mesmo que isso signifique ir contra a maré. Independente, forte e com o coração enorme, você luta por aquilo que acredita e está sempre pronta pra agir."
+        }
+
+        div_resultado.innerHTML += `
     <div class="container-invisivel">
         <div>
             <p class="paragrafo-branco">Você é o(a): ${personagemFinal}</p>
@@ -388,19 +410,19 @@ function telaEscondida(){
         </div>
     </div>
     `
-}
+    }
 
     const respostas = []
 
-    for(let i = 0; i < quiz.length; i++){
+    for (let i = 0; i < quiz.length; i++) {
         respostas.push(null)
     }
 
-    function salvarDados(resposta, index){
+    function salvarDados(resposta, index) {
         respostas[index] = resposta
     }
 
-    function enviarDados(){
+    function enviarDados() {
         const personagemFinal = calcularPersonagem(respostas);
         const personagemID = mapaPersonagemID[personagemFinal];
 
@@ -411,18 +433,18 @@ function telaEscondida(){
 
         console.log(respostas)
         fetch("http://localhost:3333/quiz/salvarRespostas", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            "idQuizServer": "1",
-            "idUsuarioServer": sessionStorage.ID_USUARIO,
-            "corretoServer": [],
-            "corretoServer": [],
-            "numeroQuestaoServer": [],
-            "resultadoServer": personagemID
-        }),
-    })
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "idQuizServer": "1",
+                "idUsuarioServer": sessionStorage.ID_USUARIO,
+                "corretoServer": [],
+                "corretoServer": [],
+                "numeroQuestaoServer": [],
+                "resultadoServer": personagemID
+            }),
+        })
     }
 </script>

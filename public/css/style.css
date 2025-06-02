@@ -568,6 +568,7 @@ html
     margin-bottom: 30px;
     align-items: center;
     justify-content: space-between;
+    gap: 80px;
 }
 
 .sessao-log
