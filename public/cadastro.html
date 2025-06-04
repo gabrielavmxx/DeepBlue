@@ -77,18 +77,18 @@
 </html>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const toggleIcons = document.querySelectorAll('.toggle-password');
-      toggleIcons.forEach(icon => {
-        icon.addEventListener('click', () => {
-          const input = icon.previousElementSibling;
-          const type = input.getAttribute('type') === 'password' ? 'text' : 'password'; //<- pegando todos os types = password
-          input.setAttribute('type', type);
-          icon.classList.toggle('fa-eye');
-          icon.classList.toggle('fa-eye-slash');
-        });
-      });
-    });
+    // document.addEventListener('DOMContentLoaded', function () {
+    //   const toggleIcons = document.querySelectorAll('.toggle-password');
+    //   toggleIcons.forEach(icon => {
+    //     icon.addEventListener('click', () => {
+    //       const input = icon.previousElementSibling;
+    //       const type = input.getAttribute('type') === 'password' ? 'text' : 'password'; //<- pegando todos os types = password
+    //       input.setAttribute('type', type);
+    //       icon.classList.toggle('fa-eye');
+    //       icon.classList.toggle('fa-eye-slash');
+    //     });
+    //   });
+    // });
 
 function cadastrar() {
   var nomeVar = nome_input.value;
