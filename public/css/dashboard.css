@@ -112,7 +112,7 @@
 .items-dashboard:hover {
     width: 180px;
     padding-left: 15px;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .icone {
@@ -125,6 +125,8 @@
     color: aliceblue;
     margin-left: 10px;
     white-space: nowrap;
+    display: flex;
+    align-items: center;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -143,6 +145,18 @@
 .items-dashboard a:hover {
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 4px;
+}
+
+.icon-dash-lateral
+{
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.fa-question
+{
+    padding-left: 5px;
 }
 
 .select-quiz
